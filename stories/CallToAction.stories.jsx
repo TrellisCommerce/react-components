@@ -9,9 +9,15 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     imageAltText: { control: 'text', defaultValue: 'This is an image' },
-    imageSrc: { control: 'text', defaultValue: 'https://via.placeholder.com/150' },
+    imageSrc: {
+      control: 'text',
+      defaultValue: 'https://via.placeholder.com/150',
+    },
     titleText: { control: 'text', defaultValue: 'Hello World' },
-    paragraphText: { control: 'text', defaultValue: 'Lorem ipsum dolor sit amet' },
+    paragraphText: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
   },
 };
 
