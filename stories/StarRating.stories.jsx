@@ -9,7 +9,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     maximumStarCount: { control: 'number', defaultValue: 5 },
-    starRating: { control: 'number', defaultValue: 3 },
+    starRating: { control: 'number', defaultValue: 4.3 },
   },
 };
 
