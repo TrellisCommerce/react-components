@@ -42,14 +42,3 @@ Primary.args = {
     },
   ],
 };
-
-// options: [
-//   { id: '1', name: 'XXS', isDisabled: false },
-//   { id: '2', name: 'XS', isDisabled: false },
-//   { id: '3', name: 'S', isDisabled: false },
-//   { id: '4', name: 'M', isDisabled: true },
-//   { id: '5', name: 'L', isDisabled: false },
-//   { id: '6', name: 'XL', isDisabled: false },
-//   { id: '7', name: '2XL', isDisabled: true },
-//   { id: '8', name: '3XL', isDisabled: true },
-// ],
