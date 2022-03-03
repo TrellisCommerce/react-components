@@ -15,6 +15,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
   "dependencies": {
+    "@storybook/addon-a11y": "^6.4.19",
     "clsx": "^1.1.1",
     "postcss": "^8",
     "prop-types": "^15.8.1",
