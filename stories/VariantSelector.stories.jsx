@@ -10,6 +10,7 @@ export default {
   argTypes: {
     typeLabel: { control: 'text', defaultValue: 'color' },
     isColor: { control: 'boolean', defaultValue: false },
+    hasSizeGuide: { control: 'boolean', defaultValue: true },
     variants: { control: 'array' },
   },
 };
@@ -24,20 +25,38 @@ Primary.args = {
   variants: [
     {
       id: '1',
-      name: 'White',
-      color: 'bg-[blue]',
+      name: 'Black',
+      color: 'Black',
       isEnabled: true,
     },
     {
       id: '2',
-      name: 'Yellow',
-      color: 'bg-[blue]',
+      name: 'Aqua',
+      color: '#33FFD8',
       isEnabled: true,
     },
     {
       id: '3',
+      name: 'Gold',
+      color: '#FFEF33',
+      isEnabled: true,
+    },
+    {
+      id: '4',
+      name: 'Orange',
+      color: 'Orange',
+      isEnabled: true,
+    },
+    {
+      id: '5',
       name: 'Green',
-      color: 'bg-[blue]',
+      color: 'Green',
+      isEnabled: true,
+    },
+    {
+      id: '6',
+      name: 'White',
+      color: 'White',
       isEnabled: true,
     },
   ],
