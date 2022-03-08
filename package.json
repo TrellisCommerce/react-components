@@ -20,7 +20,8 @@
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
   "dependencies": {},
   "peerDependencies": {
-     "clsx": "^1.1.1",
+    "@storybook/addon-a11y": "^6.4.19",
+    "clsx": "^1.1.1",
     "@headlessui/react": "^1.5.0",
     "postcss": "^8",
     "react": "^16.8.0 || ^17 || ^18",
