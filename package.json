@@ -18,16 +18,18 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
-  "dependencies": {},
+  "dependencies": {
+    "next": "^12.1.0"
+  },
   "peerDependencies": {
+    "@headlessui/react": "^1.5.0",
     "@storybook/addon-a11y": "^6.4.19",
     "clsx": "^1.1.1",
-    "@headlessui/react": "^1.5.0",
     "postcss": "^8",
     "react": "^16.8.0 || ^17 || ^18",
     "react-dom": "^16.8.0 || ^17 || ^18",
-    "tailwindcss": "^3",
-    "storybook-addon-state": "^1.0.3"
+    "storybook-addon-state": "^1.0.3",
+    "tailwindcss": "^3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
