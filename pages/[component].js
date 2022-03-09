@@ -1,15 +1,17 @@
 import React from "react";
-import { Button } from '../lib';
+import * as components from '../lib';
 
 function page(props) {
-	console.log(Button);
-	//return <p>mmmm</p>;
-	return <Button {...props} />;
+	const { component, ...args } = props
+
+	const Component = components[component];
+
+	return <Component {...args} />;
 }
 
 export default page;
 
-export async function getServerSideProps({ query }) {
-
-	return { props: query };
+export async function getServerSideProps({ query, params }) {
+	const props = JSON.parse(query.args);
+	return { props: { ...props, ...params } };
 }

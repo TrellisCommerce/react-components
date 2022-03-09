@@ -1,5 +1,5 @@
 import React from 'react';
-import SSR from "../lib/SSR"
+import SSR from "../lib/SSR";
 
 import { Button } from '/index.js';
 
@@ -25,4 +25,4 @@ Primary.args = {
   label: 'Button',
 };
 
-export const Ssr = (args) => <SSR {...args} Component={Template} />
+export const Ssr = (args) => <SSR {...args} component={'Button'} />
