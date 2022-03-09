@@ -1,9 +1,13 @@
-import React from "react";
-import Button from "lib/Button";
+import { Button } from "../lib/Button";
 
-function Button() {
+function ButtonPage(props) {
 
-	return <Button />;
+	return <Button {...props} />;
 }
 
-export default Button;
+export default ButtonPage;
+
+export async function getServerSideProps({ query }) {
+
+	return { props: query };
+}

@@ -9,7 +9,10 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+		"next-dev": "next dev",
+    "next-build": "next build",
+    "next-start": "next start"
   },
   "repository": {
     "type": "git",
