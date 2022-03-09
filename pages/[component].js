@@ -6,6 +6,9 @@ function page(props) {
 
 	const Component = components[component];
 
+	if (!Component) {
+		return <p>Component not found, is it exported on `/lib/index.js` ?</p>;
+	}
 	return <Component {...args} />;
 }
 

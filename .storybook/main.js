@@ -39,4 +39,13 @@ module.exports = {
 
     return config;
   },
+	staticDirs: ['../public/storybook-static'],
+	managerHead: (head, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      return (`
+        ${head}
+        <base href="/storybook-static/">
+      `);
+    }
+  },
 };
