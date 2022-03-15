@@ -1,5 +1,4 @@
 import React from 'react';
-import SSR from "../lib/SSR";
 
 import { Button } from '/index.js';
 
@@ -12,7 +11,6 @@ export default {
     disabled: { control: 'boolean', defaultValue: false },
     displayText: { control: 'text', defaultValue: 'Add to Cart' },
   },
-	
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -24,5 +22,3 @@ Primary.args = {
   primary: true,
   label: 'Button',
 };
-
-export const Ssr = (args) => <SSR {...args} component={'Button'} />

@@ -39,13 +39,4 @@ module.exports = {
 
     return config;
   },
-	// staticDirs: process.env.NODE_ENV === 'development' ? [] : ['../public/storybook-static'],
-	managerHead: (head, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      return (`
-        ${head}
-        <base href="/storybook-static/">
-      `);
-    }
-  },
 };

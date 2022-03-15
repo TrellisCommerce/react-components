@@ -5,15 +5,11 @@
   "main": "index.js",
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=16.13.0"
+    "node": ">=14.0.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "next-dev": "next dev",
-    "next-build": "ISNEXT=true next build && build-storybook -o ./public/storybook-static",
-    "next-start": "next start",
-    "start": "ISNEXT=true next start"
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -22,18 +18,16 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
-  "dependencies": {
-    "next": "^12.1.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "@headlessui/react": "^1.5.0",
     "@storybook/addon-a11y": "^6.4.19",
     "clsx": "^1.1.1",
+    "@headlessui/react": "^1.5.0",
     "postcss": "^8",
     "react": "^16.8.0 || ^17 || ^18",
     "react-dom": "^16.8.0 || ^17 || ^18",
-    "storybook-addon-state": "^1.0.3",
-    "tailwindcss": "^3"
+    "tailwindcss": "^3",
+    "storybook-addon-state": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",

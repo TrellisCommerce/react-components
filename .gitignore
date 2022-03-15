@@ -48,6 +48,3 @@ Thumbs.db
 *.mov
 *.wmv
 
-.next
-storybook-static/
-public/storybook-static/
