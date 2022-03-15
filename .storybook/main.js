@@ -22,6 +22,7 @@ module.exports = {
         },
       },
     },
+		'@storybook/addon-a11y'
   ],
   core: {
     builder: 'webpack5',
