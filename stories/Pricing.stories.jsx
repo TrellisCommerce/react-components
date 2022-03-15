@@ -1,5 +1,4 @@
 import React from 'react';
-import SSR from "../lib/SSR";
 
 import { Pricing } from '/index.js';
 
@@ -14,5 +13,3 @@ export default {
 };
 
 export const Primary = (args) => <Pricing {...args} />;
-
-export const Ssr = (args) => <SSR {...args} component={'Pricing'} />
