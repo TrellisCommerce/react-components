@@ -10,10 +10,10 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-		"next-dev": "next dev",
-    "next-build": "ISNEXT=true next build",
+    "next-dev": "next dev",
+    "next-build": "ISNEXT=true next build && build-storybook -o ./public/storybook-static",
     "next-start": "next start",
-		"start": "build-storybook -o ./public/storybook-static && ISNEXT=true next start"
+    "start": "ISNEXT=true next start"
   },
   "repository": {
     "type": "git",
