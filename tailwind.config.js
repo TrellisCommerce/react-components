@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./lib/**/*.{js,jsx,ts,tsx}', './stories/**/*.{js,jsx,ts,tsx}'],
+  content: ['./lib/**/*.{js,jsx,ts,tsx}', './stories/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,.ts,tsx}'],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -118,4 +118,5 @@ module.exports = {
     },
   },
   plugins: [],
+	important: process.env.ISNEXT ? '#__next' : '',
 };
