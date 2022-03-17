@@ -1,10 +1,11 @@
 module.exports = {
-	rewrites: async () => {
+	async redirects() {
     return [
       {
-        source: "/",
-        destination: "/api/home",
-      }
+        source: '/',
+        destination: '/storybook-static',
+        permanent: true,
+      },
     ]
-}
+  }
 };
