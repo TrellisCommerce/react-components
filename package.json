@@ -46,11 +46,13 @@
     "@storybook/manager-webpack5": "^6.4.18",
     "@storybook/react": "^6.4.18",
     "@storybook/theming": "^6.4.19",
+    "@trelliscommerce/prettier-config": "^1.0.0",
     "babel-loader": "^8.2.3",
     "eslint": "^8.7.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1"
   },
+  "prettier": "@trelliscommerce/prettier-config",
   "resolutions": {
     "webpack": "^5"
   }
