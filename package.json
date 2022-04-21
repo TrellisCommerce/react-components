@@ -5,11 +5,15 @@
   "main": "index.js",
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=14.17.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "next-dev": "next dev",
+    "next-build": "ISNEXT=true next build && build-storybook -o ./public/storybook-static",
+    "next-start": "next start",
+    "start": "ISNEXT=true next start"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,7 @@
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
   "dependencies": {
     "embla-carousel-react": "^6.2.0",
-    "next": "^12.1.5"
+    "next": "^12.1.0"
   },
   "peerDependencies": {
     "@headlessui/react": "^1.5.0",
@@ -38,14 +42,18 @@
     "@storybook/addon-essentials": "^6.4.18",
     "@storybook/addon-links": "^6.4.18",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addons": "^6.4.19",
     "@storybook/builder-webpack5": "^6.4.18",
     "@storybook/manager-webpack5": "^6.4.18",
     "@storybook/react": "^6.4.18",
+    "@storybook/theming": "^6.4.19",
+    "@trelliscommerce/prettier-config": "^1.0.0",
     "babel-loader": "^8.2.3",
     "eslint": "^8.7.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1"
   },
+  "prettier": "@trelliscommerce/prettier-config",
   "resolutions": {
     "webpack": "^5"
   }
