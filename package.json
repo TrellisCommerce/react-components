@@ -19,6 +19,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
   "dependencies": {
+    "embla-carousel-react": "^6.2.0",
     "next": "^12.1.5"
   },
   "peerDependencies": {
