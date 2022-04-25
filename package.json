@@ -20,7 +20,7 @@
     "url": "git+ssh://git@bitbucket.org/trellisboston/react-components.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://bitbucket.org/trellisboston/react-components#readme",
   "dependencies": {
     "next": "^12.1.0"
