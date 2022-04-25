@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SSR from "../lib/SSR";
+import SSR from '../lib/SSR';
 
 import { NumberInput } from '/index.js';
 
@@ -9,37 +9,29 @@ export default {
   component: NumberInput,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    onChange: { action: 'onChange'},
+    onChange: { action: 'onChange' },
   },
-
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Template = (args) => {
   const [quantity, setQuantity] = useState(1);
   const onChange = (elementId, quantity) => {
-   setQuantity(quantity)
+    setQuantity(quantity);
   };
-  return (
-    <NumberInput
-      {...args}
-      value={quantity}
-      onChange={onChange}
-    />
-  )
-
+  return <NumberInput {...args} value={quantity} onChange={onChange} />;
 };
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  elementId: "test"
+  elementId: 'test',
 };
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Ssr = (args) => {
   const [quantity, setQuantity] = useState(1);
   const onChange = (elementId, quantity) => {
-    setQuantity(quantity)
+    setQuantity(quantity);
   };
   return (
     <SSR
@@ -48,5 +40,5 @@ export const Ssr = (args) => {
       onChange={onChange}
       component={'NumberInput'}
     />
-  )
+  );
 };

@@ -22,7 +22,7 @@ module.exports = {
         },
       },
     },
-		'@storybook/addon-a11y'
+    '@storybook/addon-a11y',
   ],
   core: {
     builder: 'webpack5',
@@ -39,13 +39,13 @@ module.exports = {
 
     return config;
   },
-	// staticDirs: process.env.NODE_ENV === 'development' ? [] : ['../public/storybook-static'],
-	managerHead: (head, { configType }) => {
+  // staticDirs: process.env.NODE_ENV === 'development' ? [] : ['../public/storybook-static'],
+  managerHead: (head, { configType }) => {
     if (configType === 'PRODUCTION') {
-      return (`
+      return `
         ${head}
         <base href="/storybook-static/">
-      `);
+      `;
     }
   },
 };
