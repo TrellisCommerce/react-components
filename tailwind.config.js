@@ -1,5 +1,9 @@
 module.exports = {
-  content: ['./lib/**/*.{js,jsx,ts,tsx}', './stories/**/*.{js,jsx,ts,tsx}', './pages/**/*.{js,jsx,.ts,tsx}'],
+  content: [
+    './lib/**/*.{js,jsx,ts,tsx}',
+    './stories/**/*.{js,jsx,ts,tsx}',
+    './pages/**/*.{js,jsx,.ts,tsx}',
+  ],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -57,7 +61,7 @@ module.exports = {
       colors: {
         primary: {
           lighter: '#7bcae4', // 06A7E2
-          DEFAULT: '#00a7e0', //ecc94b
+          DEFAULT: '#1B202B', //ecc94b
           dark: '#1388b0',
         },
         secondary: {
@@ -79,20 +83,6 @@ module.exports = {
           lighter: '#f6e05e',
           DEFAULT: '#ecc94b', //1a202c
           dark: '#d69e2e',
-        },
-
-        // SB Specific Colors: Dont Change
-        sb: {
-          white: '#FDFDFD',
-          gray: '#565656',
-          lightgray: '#EDEDED',
-          black: '#FFFFFF',
-          green: '#447679',
-          blue: '#1E3A44',
-          teal: '#6FB1B4',
-          tealMedium: '#20B5BF',
-          tealLight: '#CDF9FC',
-          textColor: '#110E17',
         },
       },
 
@@ -118,5 +108,5 @@ module.exports = {
     },
   },
   plugins: [],
-	important: process.env.ISNEXT ? '#__next' : '',
+  important: process.env.ISNEXT ? '#__next' : '',
 };
