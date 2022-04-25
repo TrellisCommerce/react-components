@@ -1,6 +1,6 @@
-import { addons } from "@storybook/addons";
-import trellisTheme from "./trellisTheme";
+import { addons } from '@storybook/addons';
+import trellisTheme from './trellisTheme';
 
 addons.setConfig({
-    theme: trellisTheme
+  theme: trellisTheme,
 });
