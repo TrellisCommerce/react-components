@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './lib/**/*.{js,jsx,ts,tsx}',
@@ -85,7 +87,6 @@ module.exports = {
           dark: '#d69e2e',
         },
       },
-
       spacing: {
         xl: '10rem',
         lg: '6.25rem',
@@ -105,8 +106,32 @@ module.exports = {
         sbHeading: ['Epilogue', 'system-ui'],
         sbBody: ['Nunito', 'system-ui'],
       },
+      animation: {
+        fade: 'fadeIn .5s ease-in',
+      },
+      keyframes: () => ({
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities(
+        {
+          '.scrollbar-hide': {
+            '-ms-overflow-style': 'none',
+            'scrollbar-width': 'none',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          },
+        },
+        ['responsive'],
+      );
+    }),
+  ],
   important: process.env.ISNEXT ? '#__next' : '',
 };
