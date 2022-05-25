@@ -16,7 +16,10 @@ export const Primary = Template.bind({});
 Primary.args = {
   reelPosition: 'bottom',
   isBestSeller: true,
-  classNames: {},
+  classNames: {
+    mainImageWrapper:
+      'w-[270px] h-[234px] md:w-[714px] md:h-[551px] lg:w-[678px] lg:h-[589px]',
+  },
   navigateOnHover: true,
   magnifyOnHover: false,
   images: [
@@ -57,7 +60,10 @@ export const WithCustomImages = Template.bind({});
 WithCustomImages.args = {
   reelPosition: 'bottom',
   isBestSeller: true,
-  classNames: {},
+  classNames: {
+    mainImageWrapper:
+      'w-[270px] h-[234px] md:w-[714px] md:h-[551px] lg:w-[678px] lg:h-[589px]',
+  },
   navigateOnHover: false,
   magnifyOnHover: false,
   //Example for custom Image component in the gallery
