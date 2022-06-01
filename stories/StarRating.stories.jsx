@@ -22,7 +22,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   starRating: 3.5,
-  CallToAction: () => <a href="#">See all 453 reviews</a>,
+  CallToAction: () => <a href="#">453 Reviews</a>,
 };
 
 export const Editable = Template.bind({});
@@ -30,10 +30,4 @@ Editable.args = {
   isEditable: true,
   starRating: 3.5,
   onChange: (value) => alert(`Star rating changed to ${value}`),
-  classNames: {
-    container: 'flex-col-reverse',
-    starSize: 'w-8 h-8',
-    activeStar: 'text-green-700',
-    starRating: ['text-green-700', 'text-xl'],
-  },
 };
