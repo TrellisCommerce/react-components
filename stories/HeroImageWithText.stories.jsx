@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { HeroImageWithText } from '/index.js';
 import SSR from '../lib/SSR';
@@ -34,6 +34,20 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'HeroImageWithText',
+};
+
+export const CustomImageComponent = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+CustomImageComponent.args = {
+  primary: true,
+  label: 'HeroImageWithText',
+  ImageComponent: () => (
+    <img
+      alt="Some alt text"
+      src="https://via.placeholder.com/800?text=Custom+image+tag"
+      className={'w-full h-full'}
+    />
+  ),
 };
 
 export const Ssr = (args) => {
