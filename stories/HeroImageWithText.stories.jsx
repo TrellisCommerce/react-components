@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { CallToAction } from '/index.js';
+import { HeroImageWithText } from '/index.js';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'CallToAction',
-  component: CallToAction,
+  title: 'HeroImageWithText',
+  component: HeroImageWithText,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     imageAltText: { control: 'text', defaultValue: 'This is an image' },
@@ -22,28 +22,28 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <CallToAction {...args} />;
+const Template = (args) => <HeroImageWithText {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   primary: true,
-  label: 'CallToAction',
+  label: 'HeroImageWithText',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'CallToAction',
+  label: 'HeroImageWithText',
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
-  label: 'CallToAction',
+  label: 'HeroImageWithText',
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'small',
-  label: 'CallToAction',
+  label: 'HeroImageWithText',
 };
