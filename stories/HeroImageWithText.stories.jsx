@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { HeroImageWithText } from '/index.js';
+import SSR from '../lib/SSR';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -11,7 +12,7 @@ export default {
     imageAltText: { control: 'text', defaultValue: 'This is an image' },
     imageSrc: {
       control: 'text',
-      defaultValue: 'https://via.placeholder.com/150',
+      defaultValue: 'https://via.placeholder.com/800',
     },
     titleText: {
       control: 'text',
@@ -35,19 +36,6 @@ Primary.args = {
   label: 'HeroImageWithText',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'HeroImageWithText',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'HeroImageWithText',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'HeroImageWithText',
+export const Ssr = (args) => {
+  return <SSR {...args} component={'HeroImageWithText'} />;
 };
