@@ -13,10 +13,14 @@ export default {
       control: 'text',
       defaultValue: 'https://via.placeholder.com/150',
     },
-    titleText: { control: 'text', defaultValue: 'Hello World' },
+    titleText: {
+      control: 'text',
+      defaultValue: 'Wireframes can be pencil drawings on a whiteboard.',
+    },
     paragraphText: {
       control: 'text',
-      defaultValue: 'Lorem ipsum dolor sit amet',
+      defaultValue:
+        'High-fidelity wireframes are often used for documenting because they incorporate a level of detail that more closely matches the design of the actual webpage, thus taking longer',
     },
   },
 };
