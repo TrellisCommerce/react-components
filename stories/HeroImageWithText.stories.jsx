@@ -41,7 +41,7 @@ export const CustomImageComponent = Template.bind({});
 CustomImageComponent.args = {
   primary: true,
   label: 'HeroImageWithText',
-  ImageComponent: () => (
+  Image: () => (
     <img
       alt="Some alt text"
       src="https://via.placeholder.com/800?text=Custom+image+tag"
