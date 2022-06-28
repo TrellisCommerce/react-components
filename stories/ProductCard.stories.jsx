@@ -24,6 +24,9 @@ Primary.args = {
   url: '#',
   imageUrl:
     'https://assets.reebok.com/images/w_600,f_auto,q_auto/53a569c611394060b429ad590113099b_9366/Tenis_Zig_Kinetica_II_Los_Supersonicos_Blanco_GW3853.jpg',
+  classNames: {
+    starSize: 'fill-yellow-500',
+  },
 };
 
 export const ShowingVariantImages = Template.bind({});
@@ -70,6 +73,9 @@ ShowingVariantImages.args = {
       isPrimary: false,
     },
   ],
+  classNames: {
+    starSize: 'fill-yellow-500',
+  },
 };
 
 export const WithCustomLink = Template.bind({});
@@ -89,4 +95,7 @@ WithCustomLink.args = {
   imageUrl:
     'https://assets.reebok.com/images/w_600,f_auto,q_auto/53a569c611394060b429ad590113099b_9366/Tenis_Zig_Kinetica_II_Los_Supersonicos_Blanco_GW3853.jpg',
   displayVariants: false,
+  classNames: {
+    starSize: 'fill-yellow-500',
+  },
 };
