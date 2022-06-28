@@ -17,6 +17,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   title: 'Symbolic content Symbolic',
+  textCTA: 'add to cart',
   price: 20.34,
   starRating: 4,
   reviews: 12,
@@ -29,6 +30,7 @@ export const ShowingVariantImages = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ShowingVariantImages.args = {
   title: 'Symbolic content Symbolic',
+  textCTA: 'add to cart',
   price: 20.34,
   starRating: 4,
   reviews: 12,
@@ -68,4 +70,23 @@ ShowingVariantImages.args = {
       isPrimary: false,
     },
   ],
+};
+
+export const WithCustomLink = Template.bind({});
+WithCustomLink.args = {
+  title: 'Symbolic content Symbolic',
+  textCTA: 'add to cart',
+  // Use more custom components like next/link
+  LinkComponent: (
+    <a href="#" className="text-lg font-bold leading-6">
+      Symbolic content Symbolic
+    </a>
+  ),
+  price: 20.34,
+  starRating: 4,
+  reviews: 12,
+  url: '#',
+  imageUrl:
+    'https://assets.reebok.com/images/w_600,f_auto,q_auto/53a569c611394060b429ad590113099b_9366/Tenis_Zig_Kinetica_II_Los_Supersonicos_Blanco_GW3853.jpg',
+  displayVariants: false,
 };

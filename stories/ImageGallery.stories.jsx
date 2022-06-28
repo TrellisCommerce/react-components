@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ImageGallery } from '../lib';
 
@@ -15,7 +15,17 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   reelPosition: 'bottom',
+  Badge: (
+    <span
+      className={
+        'absolute px-2 py-1 text-base font-bold text-white uppercase bg-gray-400 top-2 left-2'
+      }
+    >
+      best seller
+    </span>
+  ),
   isBestSeller: true,
+  bestSellerText: 'best seller',
   classNames: {
     mainImageWrapper:
       'w-[270px] h-[234px] md:w-[714px] md:h-[551px] lg:w-[678px] lg:h-[589px]',
@@ -56,26 +66,38 @@ Primary.args = {
   ],
 };
 
-export const WithCustomImages = Template.bind({});
+export const WithCustomImages = (args) => {
+  const [mainImageSrc, setMainImageSrc] = useState('');
+
+  const onMainImageChange = (currentMainImageSrc) => {
+    setMainImageSrc(currentMainImageSrc);
+  };
+
+  return (
+    <ImageGallery
+      {...args}
+      onMainImageChange={onMainImageChange}
+      MainImageComponent={() => (
+        <img
+          src={mainImageSrc}
+          key={mainImageSrc}
+          draggable={false}
+          alt=""
+          className="object-cover w-full h-full animate-fade"
+        />
+      )}
+    />
+  );
+};
 WithCustomImages.args = {
   reelPosition: 'bottom',
-  isBestSeller: true,
+  isBestSeller: false,
   classNames: {
     mainImageWrapper:
       'w-[270px] h-[234px] md:w-[714px] md:h-[551px] lg:w-[678px] lg:h-[589px]',
   },
   navigateOnHover: false,
   magnifyOnHover: false,
-  //Example for custom Image component in the gallery
-  MainImageComponent: (imageSrc) => (
-    <img
-      src={imageSrc}
-      key={imageSrc}
-      draggable={false}
-      alt=""
-      className="object-cover w-full h-full animate-fade"
-    />
-  ),
   images: [
     {
       imageUrl:
