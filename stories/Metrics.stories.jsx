@@ -7,7 +7,7 @@ export default {
   component: Metrics,
   //Optional args - More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    metrics: { control: 'array' }
+    metrics: { control: 'array' },
   },
 };
 
@@ -18,23 +18,23 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   classNames: {
-		metricValue: 'text-primary',
-	},
+    metricValue: 'text-primary',
+  },
   metrics: [
     {
       id: '1',
       label: 'Star Ratings',
-      value: '4.4'
+      value: '4.4',
     },
     {
       id: '2',
       label: 'Real User Reviews',
-      value: '2,430'
+      value: '2,430',
     },
     {
       id: '3',
       label: 'Satisfaction Guaranteed',
-      value: '100%'
-    }
-  ]
+      value: '100%',
+    },
+  ],
 };
