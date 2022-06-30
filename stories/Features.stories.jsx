@@ -7,7 +7,7 @@ export default {
   component: Features,
   //Optional args - More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    metrics: { control: 'array' }
+    metrics: { control: 'array' },
   },
 };
 
@@ -19,26 +19,27 @@ export const Primary = Template.bind({});
 Primary.args = {
   classNames: {
     featureWrapper: 'content-center',
-	},
-  title: "How to make you feel good",
+  },
+  title: 'How to make you feel good',
   features: [
     {
       id: '1',
       icon: 'https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-Setting-essential-collection-bearicons-glyph-bearicons.png',
       title: 'Super Organized',
-      subTitle: 'Since wire-frame renderings are relatively simple.'
+      subTitle: 'Since wire-frame renderings are relatively simple.',
     },
     {
       id: '2',
       icon: 'https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-Setting-essential-collection-bearicons-glyph-bearicons.png',
       title: 'Super Organized',
-      subTitle: 'Since wire-frame renderings are relatively simple.'
+      subTitle: 'Since wire-frame renderings are relatively simple.',
     },
     {
       id: '3',
       icon: 'https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-Setting-essential-collection-bearicons-glyph-bearicons.png',
       title: 'Super Organized',
-      subTitle: 'Since wire-frame renderings are relatively simple. Since wire-frame renderings are relatively simple.'
-    }
-  ]
+      subTitle:
+        'Since wire-frame renderings are relatively simple. Since wire-frame renderings are relatively simple.',
+    },
+  ],
 };
