@@ -144,14 +144,14 @@ Then, import components of your choice wherever you need them.
 For example with the `Pricing` component:
 
 ```js
-import React from "react";
-import { Pricing } from "@trelliscommerce/react-components";
+import React from 'react';
+import { Pricing } from '@trelliscommerce/react-components';
 
 const YourComponentOrPage = ({ price, ...yourProps }) => (
-    <>
-        {/* Render your own component tree, and use the library's components wherever you need */}
-        <Pricing originalPrice={price} />
-    </>
+  <>
+    {/* Render your own component tree, and use the library's components wherever you need */}
+    <Pricing originalPrice={price} />
+  </>
 );
 
 export default YourComponentOrPage;
