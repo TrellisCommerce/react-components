@@ -11,6 +11,13 @@ const Button = () => {
     }}
   />)
 }
+/**
+ * Next Image loader
+ * @returns {*}
+ */
+const myLoader = (src) => {
+  return src
+};
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Hero',
@@ -38,6 +45,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   label: 'Hero',
+  Button,
   slides: [
     {
       title: "Women's History Month",
@@ -52,12 +60,26 @@ Primary.args = {
 export const NextImage = Template.bind({});
   NextImage.args = {
      label: 'Hero',
-     NextImage: Image,
+    Button,
+    slides: [
+      {
+        title: "Women's History Month",
+        subTitle:
+          "Discover our latest women's releases in celebration of Women's History Month",
+        imageComponent: () => (
+          <Image loader={() => 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'}
+                 src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80"
+                 layout="fill"
+                 objectFit="cover"/>
+        ),
+      }
+    ]
   };
 
 export const Carousel = Template.bind({});
 Carousel.args = {
   label: 'Hero',
+  Button,
   slides: [
     {
       title: "Women's History Month",
@@ -78,8 +100,7 @@ Carousel.args = {
       subTitle:
         "Discover our latest women's releases in celebration of Women's History Month",
       imageUrl:
-        'https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+        'https://source.unsplash.com/random/1600x900',
     },
-  ],
-  NextImage: Image,
+  ]
 };
