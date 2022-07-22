@@ -1,6 +1,6 @@
 {
-  "name": "@trellis/react-components",
-  "version": "0.0.1",
+  "name": "@trelliscommerce/react-components",
+  "version": "1.0.0",
   "description": "A React component library by Trellis",
   "main": "index.js",
   "engines": {
