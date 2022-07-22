@@ -79,6 +79,7 @@ export const Editable = (args) => {
 
   return (
     <CartSummary
+      emptyCartMessage="Cart is Empty"
       {...args}
       cartItems={cartItems}
       onChange={onChange}
