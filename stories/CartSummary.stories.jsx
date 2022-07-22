@@ -25,6 +25,7 @@ Primary.args = {
       originalPrice: '$99.99',
       imageUrl:
         'https://via.placeholder.com/150.png/1EA7FD/808080?text=product1',
+      imageAlt: 'Image alt message',
     },
     {
       id: 'bbb',
@@ -34,6 +35,7 @@ Primary.args = {
       originalPrice: '$50.99',
       promotionalPrice: '$25.99',
       imageUrl: 'https://via.placeholder.com/250.png?text=productSmall2',
+      imageAlt: 'Image alt message',
     },
   ],
 };
@@ -47,6 +49,7 @@ export const Editable = (args) => {
       quantity: 2,
       originalPrice: '$99.99',
       imageUrl: 'https://via.placeholder.com/250.png?text=productSmall2',
+      imageAlt: 'Image alt message',
     },
     {
       id: 'bbb',
@@ -56,6 +59,7 @@ export const Editable = (args) => {
       originalPrice: '$50.99',
       promotionalPrice: '$25.99',
       imageUrl: 'https://via.placeholder.com/250.png?text=productSmall2',
+      imageAlt: 'Image alt message',
     },
   ]);
 
