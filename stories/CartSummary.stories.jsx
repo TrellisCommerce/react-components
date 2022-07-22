@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { CartSummary } from '/index.js';
+import PropTypes from "prop-types";
 
 export default {
   title: 'CartSummary',
@@ -8,6 +9,7 @@ export default {
   argTypes: {
     classNames: {},
     cartItems: {},
+    emptyCartMessage: ''
   },
 };
 
@@ -80,6 +82,7 @@ export const Editable = (args) => {
   return (
     <CartSummary
       {...args}
+      emptyCartMessage="Cart is empty"
       cartItems={cartItems}
       onChange={onChange}
       onRemove={onRemove}

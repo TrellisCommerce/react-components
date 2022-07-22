@@ -15,6 +15,7 @@ function CartSummary(props) {
     onChange,
     onRemove,
     removeLabel,
+    emptyCartMessage
   } = props;
 
   return (
@@ -25,6 +26,11 @@ function CartSummary(props) {
         <h5 className="">{quantityLabel}</h5>
         <h5 className="">Price</h5>
       </header>
+      {cartItems.length <= 0 &&
+        <p className="text-center">
+          {emptyCartMessage}
+        </p>
+      }
       {cartItems?.map((item) => (
         <div
           key={item.id}
@@ -253,6 +259,10 @@ CartSummary.propTypes = {
       Image: PropTypes.func,
     }),
   ),
+  /**
+   * Empty cart message
+   */
+  emptyCartMessage: PropTypes.string,
   /**
    * Label for `quantity`
    */
