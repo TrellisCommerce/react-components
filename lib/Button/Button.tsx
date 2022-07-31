@@ -2,12 +2,23 @@ import React from 'react';
 import clsx from 'clsx';
 import { generateClasses } from '../utils';
 
-const Button = ({ classNames, disabled, displayText, onClick }) => (
+interface ClassNames {
+  button?: string
+}
+interface Props {
+  classNames: ClassNames,
+  disabled: boolean,
+  displayText: string,
+  onClick: () => {},
+  OverrideClasses?: boolean
+}
+const Button: React.FC<Props> = ({ classNames, disabled, displayText, onClick, OverrideClasses }) => (
   <button
     className={clsx([
       generateClasses(
         'py-xs px-sm text-basefont-medium bg-primary text-white w-full hover:bg-primary-dark',
         classNames?.button,
+        OverrideClasses
       ),
       {
         'bg-gray-500': disabled,

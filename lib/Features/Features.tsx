@@ -2,8 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { generateClasses } from '../utils';
-
-const Features = ({ classNames, features, title }) => {
+interface ClassNames {
+  root?: string
+  title?: string
+  featureWrapper?: string
+  featureTitle?: string
+  featureSubtitle?: string
+  container?: string
+}
+interface Feature {
+  id: string
+  icon: string
+  title: string
+  subTitle: string
+}
+interface Props {
+  classNames: ClassNames
+  features: Feature[]
+  title: string
+  OverrideClasses?: boolean
+}
+const Features: React.FC<Props> = ({ classNames, features, title, OverrideClasses }) => {
   return (
     <div className={clsx('sm:m-8 lg:m-32 md:m-8 ', classNames?.container)}>
       <h1
@@ -11,6 +30,7 @@ const Features = ({ classNames, features, title }) => {
           generateClasses(
             'col-start-1 col-end-7 font-extrabold text-center text-5xl mb-12',
             classNames?.title,
+            OverrideClasses
           ),
         )}
       >
@@ -28,6 +48,7 @@ const Features = ({ classNames, features, title }) => {
               generateClasses(
                 'flex flex-col align-center text-center w-80 mx-auto',
                 classNames?.featureWrapper,
+                OverrideClasses
               ),
             ])}
           >
@@ -45,6 +66,7 @@ const Features = ({ classNames, features, title }) => {
                 generateClasses(
                   'pt-1 text-2xl font-bold mb-6',
                   classNames?.featureTitle,
+                  OverrideClasses
                 ),
               ])}
             >
@@ -52,7 +74,7 @@ const Features = ({ classNames, features, title }) => {
             </h2>
             <p
               className={clsx([
-                generateClasses('pt-1 text-lg', classNames?.featureSubtitle),
+                generateClasses('pt-1 text-lg', classNames?.featureSubtitle, OverrideClasses),
               ])}
             >
               {feature.subTitle}
@@ -62,40 +84,6 @@ const Features = ({ classNames, features, title }) => {
       </div>
     </div>
   );
-};
-
-Features.propTypes = {
-  /**
-	 * Object of classNames to be added to each part of the component.
-
-	 * e.g. `{ container: 'my-custom-class', container: 'my-other-custom-class' }`
-	 */
-  classNames: PropTypes.shape({
-    container: PropTypes.string,
-    title: PropTypes.string,
-    featureWrapper: PropTypes.string,
-    featureTitle: PropTypes.string,
-    featureSubtitle: PropTypes.string,
-  }),
-  /**
-	 * Array of objects for each feature box to display
-
-   * e.g. `[{ id: 3, icon: 'spinner', title: 'Super Organized', subtitle: 'Since wire-frame renderings are relatively simple.' }]`
-	 */
-  features: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      icon: PropTypes.string,
-      title: PropTypes.string,
-      subTitle: PropTypes.string,
-    }),
-  ).isRequired,
-  /**
-   * Title of feature component
-
-   * e.g. `How to make you feel good`
-   */
-  title: PropTypes.string.isRequired,
 };
 
 export default Features;

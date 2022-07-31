@@ -2,9 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { generateClasses } from '../utils';
+import {Field} from "../utils/types";
 
-function NumberInput(props) {
-  const { classNames, onChange, value, elementId } = props;
+interface ClassNames {
+  field?: Field
+}
+
+interface Props {
+  classNames?: ClassNames
+  onChange: (elementId: string, value: number | string) => {}
+  value: number
+  elementId: string
+  OverrideClasses?: boolean
+}
+
+const NumberInput: React.FC<Props> = (props) => {
+  const { classNames, onChange, value, elementId, OverrideClasses } = props;
 
   return (
     <fieldset
@@ -12,6 +25,7 @@ function NumberInput(props) {
         generateClasses(
           'flex border border-gray-300 w-min overflow-hidden h-8',
           classNames?.field?.root,
+          OverrideClasses
         ),
       )}
     >
@@ -20,6 +34,7 @@ function NumberInput(props) {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.minus,
+            OverrideClasses
           ),
         )}
         onClick={() => value > 1 && onChange(elementId, value - 1)}
@@ -37,6 +52,7 @@ function NumberInput(props) {
           generateClasses(
             'w-8 text-center border-gray-300 border-x',
             classNames?.field?.input,
+            OverrideClasses
           ),
         )}
       />
@@ -45,6 +61,7 @@ function NumberInput(props) {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.plus,
+            OverrideClasses
           ),
         )}
         onClick={() => onChange(elementId, value + 1)}
@@ -54,46 +71,6 @@ function NumberInput(props) {
     </fieldset>
   );
 }
-
-NumberInput.propTypes = {
-  /**
-   * object of classNames to add to each part of the component.
-
-   * e.g. `{ root: 'p-2', productTitle: 'text-xl', removeButtonIcon: ['w-10', 'h-10'] }`
-   */
-  classNames: PropTypes.shape({
-    root: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    minus: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    plus: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    input: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-  }),
-  /**
-   * Quantity value
-   */
-  value: PropTypes.number,
-  /**
-   * onChange handler for quantity
-   * @param {string} id
-   * @param {number} quantity
-   */
-  onChange: PropTypes.func,
-  /**
-   * Unique DOM element identifier
-   */
-  elementId: PropTypes.string,
-};
 
 NumberInput.defaultProps = {
   onChange: (id, quantity) => ({ id, quantity }),

@@ -11,7 +11,26 @@ const FilledStarPath = () => (
   <path d="M8.33044 0.952536L9.90761 5.84702L14.8354 5.90682C15.2594 5.91199 15.4349 6.47838 15.0948 6.74346L11.1413 9.82781L12.6098 14.7591C12.736 15.1835 12.2768 15.5331 11.9307 15.276L7.91078 12.2877L3.89033 15.2754C3.54473 15.5325 3.08504 15.1823 3.21121 14.7585L4.67972 9.82723L0.726196 6.74288C0.386083 6.4778 0.561625 5.91142 0.985668 5.90625L5.91345 5.84644L7.49058 0.95196C7.62663 0.531054 8.19494 0.531054 8.33044 0.952536Z" />
 );
 
-const StarRating = ({
+interface ClassNames {
+  starSize?: string
+  activeStar?: string
+  inactiveStar?: string
+  container?: string
+}
+
+interface Props {
+  classNames?: ClassNames
+  starRating: number
+  StarSvgPaths?: React.FC
+  maximumStarCount?: number
+  FilledStarSvgPaths?: React.FC
+  isEditable?: boolean
+  OverrideClasses?: boolean
+  CallToAction?: React.FC,
+  onChange?: (val: number) => {}
+}
+
+const StarRating: React.FC<Props> = ({
   classNames,
   starRating,
   maximumStarCount,
@@ -20,8 +39,9 @@ const StarRating = ({
   isEditable,
   onChange,
   CallToAction,
+                                       OverrideClasses
 }) => {
-  const [selectedStar, setSelectedStar] = useState(false);
+  const [selectedStar, setSelectedStar] = useState<undefined | number>(undefined);
 
   const humanFriendlyStarRating = Number.isInteger(starRating)
     ? starRating
@@ -34,7 +54,7 @@ const StarRating = ({
 
     for (let i = 0; i < maximumStarCount; i += 1) {
       isActiveStar =
-        (!selectedStar && i < parseInt(starRating)) ||
+        (!selectedStar && i < starRating) ||
         (isEditable && i < selectedStar);
 
       starComponents.push(
@@ -92,76 +112,25 @@ const StarRating = ({
 
       <div
         className={clsx([
-          generateClasses('flex items-center', classNames?.container),
+          generateClasses('flex items-center', classNames?.container, OverrideClasses),
           isEditable && 'hover:cursor-pointer',
         ])}
       >
         <div
           className={clsx(['flex', 'items-center'])}
-          onMouseLeave={() => isEditable && setSelectedStar(false)}
+          onMouseLeave={() => isEditable && setSelectedStar(undefined)}
         >
           {renderStars}
         </div>
 
         {CallToAction && (
-          <span className={clsx(['text-xs', 'ml-3'])}>{CallToAction()}</span>
+          <span className={clsx(['text-xs', 'ml-3'])}>
+            <CallToAction />
+          </span>
         )}
       </div>
     </>
   );
-};
-
-StarRating.propTypes = {
-  /**
-	  * object of classNames to be added to each part of the component.
-	 
-	  * e.g. `{ activeStar: '#FFFFFF', starSize: ['w-10', 'h-10'] }`
-	 
-	  * default `{ activeStar: 'text-yellow-400', inactiveStar: 'text-gray-300' }`
-	 */
-  classNames: PropTypes.PropTypes.shape({
-    container: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    starSize: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    activeStar: PropTypes.string,
-    inactiveStar: PropTypes.string,
-  }),
-  /** If starRating is an int, this will keep it as such (no decimals).
-		* If starRating is a float, it will be rounded to 1 decimal.
-
-		* ex.: for starRating = 4, humanFriendlyStarRating will be 4
-		* For starRating = 3.466445, humanFriendlyStarRating will be 3.4
-	 */
-  starRating: PropTypes.number,
-  /**
-   * The maximum number of stars to display.
-   */
-  maximumStarCount: PropTypes.number,
-  /**
-   * Component to render path of the star icon.
-   */
-  StarSvgPaths: PropTypes.func,
-  /**
-   * Component to render path of the filled star icon.
-   */
-  FilledStarPath: PropTypes.func,
-  /**
-   * Make the star rating component a selector.
-   */
-  isEditable: PropTypes.bool,
-  /**
-   * The onChange handler for the star rating.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Call to action component.
-   */
-  CallToAction: PropTypes.func,
 };
 
 StarRating.defaultProps = {

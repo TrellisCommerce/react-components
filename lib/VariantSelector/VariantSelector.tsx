@@ -3,13 +3,48 @@ import clsx from 'clsx';
 import { RadioGroup } from '@headlessui/react';
 import { generateClasses } from '../utils';
 
-const VariantSelector = ({
+interface ClassNames {
+  headingTypeLabel?: string
+  radioGroup?: string
+  radioGroupLabel?: string
+  radioGroupOptionsWrapper?: string
+  radioGroupOption?: string
+  colorLabel?: string
+  colorSpan?: string
+  disabledColorSVG?: string
+  headingContainer?: string
+  headingSizeGuideLabel?: string
+  radioGroupOptionLabel?: string
+  radioGroupOptionItem?: string
+  disabledRadioGroupOptionItem?: string
+  disabledSVG?: string
+}
+
+interface Variant {
+  color: string
+  isEnabled: string
+  id: string
+  name: string
+}
+
+interface Props {
+  classNames?: ClassNames
+  typeLabel: string
+  isColor: boolean
+  hasSizeGuide: boolean
+  OverrideClasses: boolean
+  variants: Variant[]
+  onSelection: (value: number) => {}
+}
+
+const VariantSelector: React.FC<Props> = ({
   classNames = {},
   typeLabel,
   isColor,
   hasSizeGuide,
   variants,
   onSelection,
+                           OverrideClasses
 }) => {
   const [selectedVariantId, setSelectedVariantId] = useState();
 
@@ -22,6 +57,7 @@ const VariantSelector = ({
               generateClasses(
                 'text-sm text-gray-900 font-medium',
                 classNames.headingTypeLabel,
+                OverrideClasses
               ),
             )}
           >
@@ -37,7 +73,7 @@ const VariantSelector = ({
           >
             <RadioGroup.Label
               className={clsx(
-                generateClasses('sr-only', classNames.radioGroupLabel),
+                generateClasses('sr-only', classNames.radioGroupLabel, OverrideClasses),
               )}
             >
               Choose a {typeLabel}
@@ -47,6 +83,7 @@ const VariantSelector = ({
                 generateClasses(
                   'flex items-center space-x-3',
                   classNames.radioGroupOptionsWrapper,
+                  OverrideClasses
                 ),
               )}
             >
@@ -71,7 +108,7 @@ const VariantSelector = ({
                       <RadioGroup.Label
                         as="p"
                         className={clsx(
-                          generateClasses('sr-only', classNames.colorLabel),
+                          generateClasses('sr-only', classNames.colorLabel, OverrideClasses),
                         )}
                       >
                         {typeLabel}
@@ -83,6 +120,7 @@ const VariantSelector = ({
                           generateClasses(
                             'h-8 w-8 border border-black border-opacity-10',
                             classNames.colorSpan,
+                            OverrideClasses
                           ),
                         )}
                         style={{ backgroundColor: variant.color }}
@@ -94,6 +132,7 @@ const VariantSelector = ({
                         generateClasses(
                           'h-8 w-8 opacity-30	 border border-Gray-800',
                           classNames.disabledColorSVG,
+                          OverrideClasses
                         ),
                       )}
                       style={{ backgroundColor: variant.color }}
@@ -103,7 +142,7 @@ const VariantSelector = ({
                     >
                       <line
                         stroke="black"
-                        stroke-width="1.3"
+                        strokeWidth="1.3"
                         x1={0}
                         y1={100}
                         x2={100}
@@ -112,7 +151,7 @@ const VariantSelector = ({
                       />
                       <line
                         stroke="black"
-                        stroke-width="1.3"
+                        strokeWidth="1.3"
                         x1={0}
                         y1={0}
                         x2={100}
@@ -133,6 +172,7 @@ const VariantSelector = ({
               generateClasses(
                 'flex items-center justify-between',
                 classNames.headingContainer,
+                OverrideClasses
               ),
             )}
           >
@@ -141,6 +181,7 @@ const VariantSelector = ({
                 generateClasses(
                   'text-sm text-gray-900 font-medium',
                   classNames.headingTypeLabel,
+                  OverrideClasses
                 ),
               )}
             >
@@ -153,6 +194,7 @@ const VariantSelector = ({
                   generateClasses(
                     'text-sm font-medium text-indigo-600 hover:text-indigo-500',
                     classNames.headingSizeGuideLabel,
+                    OverrideClasses
                   ),
                 )}
               >
@@ -168,12 +210,13 @@ const VariantSelector = ({
               onSelection(value);
             }}
             className={clsx(
-              generateClasses('mt-6 max-w-xs', classNames.radioGroup),
+              generateClasses('mt-6 max-w-xs', classNames.radioGroup, OverrideClasses)
             )}
           >
             <RadioGroup.Label
               className={clsx(
-                generateClasses('sr-only', classNames.radioGroupLabel),
+                generateClasses('sr-only', classNames.radioGroupLabel, OverrideClasses)
+
               )}
             >
               Choose a {typeLabel}
@@ -183,6 +226,7 @@ const VariantSelector = ({
                 generateClasses(
                   'grid grid-cols-[repeat(15,_minmax(max-content,_auto))] gap-4 auto-rows-max',
                   classNames.radioGroupOptionsWrapper,
+                  OverrideClasses
                 ),
               )}
             >
@@ -209,6 +253,7 @@ const VariantSelector = ({
                           generateClasses(
                             'font-light text-sm uppercase',
                             classNames.radioGroupOptionLabel,
+                            OverrideClasses
                           ),
                         )}
                         as="p"
@@ -221,6 +266,7 @@ const VariantSelector = ({
                             generateClasses(
                               'border absolute -inset-px pointer-events-none',
                               classNames.radioGroupOptionItem,
+                              OverrideClasses
                             ),
                           )}
                           aria-hidden="true"
@@ -232,6 +278,7 @@ const VariantSelector = ({
                             generateClasses(
                               'absolute -inset-px border-2 border-gray-200 pointer-events-none',
                               classNames.disabledRadioGroupOptionItem,
+                              OverrideClasses
                             ),
                           )}
                         >
@@ -240,6 +287,7 @@ const VariantSelector = ({
                               generateClasses(
                                 'absolute inset-0 w-full h-full text-gray-200 stroke-2 	',
                                 classNames.disabledSVG,
+                                OverrideClasses
                               ),
                             )}
                             viewBox="0 0 100 100"
