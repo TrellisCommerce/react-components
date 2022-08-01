@@ -19,7 +19,7 @@ interface ClassNames {
 }
 
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   breakdown: BreakDown[]
   totalLabel: String
   totalPrice: number

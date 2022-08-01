@@ -18,7 +18,7 @@ interface ClassNames {
 
 
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   Badge?: string
   displayArrows?: boolean
   images: Image[]

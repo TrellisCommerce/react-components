@@ -16,7 +16,7 @@ interface ClassNames {
 }
 
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   imageAltText: string
   Image: React.FC
   imageSrc: string

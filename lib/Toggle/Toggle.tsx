@@ -21,7 +21,7 @@ interface ClassNames {
 }
 
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   label: string
   overrideDefaults: boolean
 }

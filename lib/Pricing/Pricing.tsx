@@ -5,7 +5,7 @@ import { generateClasses } from '../utils';
 import { PricingClassNames } from '../utils/types'
 
 interface Props {
-  classNames: PricingClassNames,
+  classNames?: PricingClassNames,
   originalPrice: string
   promotionalPrice: string
   OverrideClasses?: boolean

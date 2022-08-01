@@ -25,12 +25,12 @@ interface Props {
   url: string
   variantImages: Image[]
   starRating: number
-  classNames: ClassNames
+  classNames?: ClassNames
   displayVariants: boolean
   LinkComponent: JSX.Element|JSX.Element[]
   onAddToCart: () => {}
   Image: React.FC
-  OverrideClasses: boolean
+  OverrideClasses?: boolean
 }
 
 const ProductCard: React.FC<Props> = (props) => {

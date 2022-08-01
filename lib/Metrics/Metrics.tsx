@@ -17,7 +17,7 @@ interface Metric {
 }
 
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   metrics: Metric[]
   OverrideClasses?: boolean
 }

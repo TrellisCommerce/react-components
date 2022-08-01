@@ -36,10 +36,11 @@ interface CartItem {
 }
 
 interface Props {
-  classNames: ClassNames,
+  classNames?: ClassNames,
   cartItems: CartItem[]
   quantityLabel: string
   removeLabel: string
+  emptyCartMessage: string
   onRemove: (id: string) => {}
   isReadOnly: boolean
   OverrideClasses?: boolean
@@ -54,7 +55,8 @@ const CartSummary: React.FC<Props> = (props) => {
     isReadOnly,
     onChange,
     onRemove,
-    OverrideClasses
+    OverrideClasses,
+    emptyCartMessage
   } = props;
 
   return (
@@ -65,6 +67,11 @@ const CartSummary: React.FC<Props> = (props) => {
         <h5 className="">{quantityLabel}</h5>
         <h5 className="">Price</h5>
       </header>
+      {cartItems.length <= 0 &&
+        <p className="text-center">
+          {emptyCartMessage}
+        </p>
+      }
       {cartItems?.map((item) => (
         <div
           key={item.id}

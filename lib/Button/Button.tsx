@@ -6,7 +6,7 @@ interface ClassNames {
   button?: string
 }
 interface Props {
-  classNames: ClassNames,
+  classNames?: ClassNames,
   disabled: boolean,
   displayText: string,
   onClick: () => {},

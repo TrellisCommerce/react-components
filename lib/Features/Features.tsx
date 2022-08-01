@@ -17,7 +17,7 @@ interface Feature {
   subTitle: string
 }
 interface Props {
-  classNames: ClassNames
+  classNames?: ClassNames
   features: Feature[]
   title: string
   OverrideClasses?: boolean
