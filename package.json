@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "next-dev": "next dev",
-    "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && next-build",
+    "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && npm run next-build",
     "build:esm": "node_modules/typescript/bin//tsc --preserveWatchOutput --jsx react-jsx",
     "build:cjs": "node_modules/typescript/bin//tsc --module CommonJS --outDir dist/cjs",
     "next-build": "ISNEXT=true next build && build-storybook -o ./public/storybook-static",
