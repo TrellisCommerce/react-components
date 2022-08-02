@@ -8,14 +8,14 @@ interface Props {
   classNames?: PricingClassNames;
   originalPrice: string;
   promotionalPrice: string;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 /**
  * Pricing component
  */
 const Pricing: React.FC<Props> = (props) => {
-  const { classNames, originalPrice, promotionalPrice, OverrideClasses } =
+  const { classNames, originalPrice, promotionalPrice, overrideClasses } =
     props;
 
   return (
@@ -26,7 +26,7 @@ const Pricing: React.FC<Props> = (props) => {
             generateClasses(
               'text-md font-medium mr-1',
               classNames?.promotional,
-              OverrideClasses,
+              overrideClasses,
             ),
           ])}
         >

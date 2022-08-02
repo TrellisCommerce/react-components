@@ -22,7 +22,7 @@ interface Props {
   imageSrc: string;
   paragraphText: string;
   titleText: string;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 const HeroImageWithText: React.FC<Props> = ({
@@ -32,16 +32,16 @@ const HeroImageWithText: React.FC<Props> = ({
   imageSrc,
   paragraphText,
   titleText,
-  OverrideClasses,
+  overrideClasses,
 }) => (
   <section
     className={clsx([
-      generateClasses('h-128', classNames.root, OverrideClasses),
+      generateClasses('h-128', classNames.root, overrideClasses),
     ])}
   >
     <div
       className={clsx([
-        generateClasses('h-full', classNames.container, OverrideClasses),
+        generateClasses('h-full', classNames.container, overrideClasses),
       ])}
     >
       <div
@@ -49,7 +49,7 @@ const HeroImageWithText: React.FC<Props> = ({
           generateClasses(
             'h-full md:flex md:items-stretch',
             classNames.layout,
-            OverrideClasses,
+            overrideClasses,
           ),
         ])}
       >
@@ -58,7 +58,7 @@ const HeroImageWithText: React.FC<Props> = ({
             generateClasses(
               'md:mr-lg max-w-lg my-6 mx-8 md:my-12 md:mx-16 md:flex md:justify-center md:flex-col md:basis-full',
               classNames.textContainer,
-              OverrideClasses,
+              overrideClasses,
             ),
           ])}
         >
@@ -67,7 +67,7 @@ const HeroImageWithText: React.FC<Props> = ({
               generateClasses(
                 'mb-6 md:mb-sm font-black text-3xl',
                 classNames.title,
-                OverrideClasses,
+                overrideClasses,
               ),
             ])}
           >
@@ -75,7 +75,7 @@ const HeroImageWithText: React.FC<Props> = ({
           </h4>
           <p
             className={clsx([
-              generateClasses('text-lg', classNames.paragraph, OverrideClasses),
+              generateClasses('text-lg', classNames.paragraph, overrideClasses),
             ])}
           >
             {paragraphText}
@@ -86,7 +86,7 @@ const HeroImageWithText: React.FC<Props> = ({
             generateClasses(
               'w-full md:basis-full',
               classNames.imageContainer,
-              OverrideClasses,
+              overrideClasses,
             ),
           ])}
         >
@@ -98,7 +98,7 @@ const HeroImageWithText: React.FC<Props> = ({
                 generateClasses(
                   'relative pb-3/4 md:pb-0 bg-primary overflow-hidden w-full md:h-full',
                   classNames.imageWrapper,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               ])}
             >
@@ -107,7 +107,7 @@ const HeroImageWithText: React.FC<Props> = ({
                   generateClasses(
                     'top-0 w-full h-full min-h-2/3 object-cover absolute z-0',
                     classNames.image,
-                    OverrideClasses,
+                    overrideClasses,
                   ),
                 ])}
                 src={imageSrc}

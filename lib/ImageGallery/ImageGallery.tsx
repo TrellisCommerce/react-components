@@ -26,7 +26,7 @@ interface Props {
   navigateOnHover?: boolean;
   reelPosition: string;
   onMainImageChange?: (imageUrl: string) => {};
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 const ImageGallery: React.FC<Props> = ({
@@ -39,7 +39,7 @@ const ImageGallery: React.FC<Props> = ({
   navigateOnHover = false,
   reelPosition = 'bottom',
   onMainImageChange,
-  OverrideClasses,
+  overrideClasses,
 }) => {
   const scrollableReel: React.RefObject<HTMLInputElement> = useRef();
   const [scrollForward, setScrollForward] = useState(false);
@@ -172,7 +172,7 @@ const ImageGallery: React.FC<Props> = ({
           generateClasses(
             'relative cursor-pointer h-full w-full overflow-hidden',
             classNames.mainImageWrapper,
-            OverrideClasses,
+            overrideClasses,
           ),
           {
             'lg:order-2': isThumbnailsSide,
@@ -219,7 +219,7 @@ const ImageGallery: React.FC<Props> = ({
             generateClasses(
               'flex shrink-0 scrollbar-hide',
               classNames.thumbnailsReel,
-              OverrideClasses,
+              overrideClasses,
             ),
             {
               'flex-col ml-1 space-y-1 lg:ml-0 lg:mr-4 lg:space-y-2 overflow-y-auto overflow-x-hidden h-56 md:h-80 lg:h-120':
@@ -257,7 +257,7 @@ const ImageGallery: React.FC<Props> = ({
                     generateClasses(
                       'object-contain w-full h-full',
                       classNames.thumbnailImage,
-                      OverrideClasses,
+                      overrideClasses,
                     ),
                   )}
                 />

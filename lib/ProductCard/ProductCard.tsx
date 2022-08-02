@@ -30,7 +30,7 @@ interface Props {
   LinkComponent: JSX.Element | JSX.Element[];
   onAddToCart: () => {};
   Image: React.FC;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 const ProductCard: React.FC<Props> = (props) => {
@@ -49,7 +49,7 @@ const ProductCard: React.FC<Props> = (props) => {
     title,
     url,
     variantImages = [],
-    OverrideClasses,
+    overrideClasses,
   } = props;
 
   return (
@@ -58,7 +58,7 @@ const ProductCard: React.FC<Props> = (props) => {
         generateClasses(
           'max-w-[282px] min-w-[160px] group',
           classNames.root,
-          OverrideClasses,
+          overrideClasses,
         ),
       )}
     >
@@ -67,7 +67,7 @@ const ProductCard: React.FC<Props> = (props) => {
           generateClasses(
             'bg-slate-100 w-full overflow-hidden',
             classNames.imageWrapper,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
       >
@@ -91,7 +91,7 @@ const ProductCard: React.FC<Props> = (props) => {
                 generateClasses(
                   'object-cover w-full h-full',
                   classNames.image,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
                 { 'group-hover:hidden': displayVariants },
               )}
@@ -112,7 +112,7 @@ const ProductCard: React.FC<Props> = (props) => {
                 generateClasses(
                   'text-lg font-bold leading-6',
                   classNames.title,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -126,7 +126,7 @@ const ProductCard: React.FC<Props> = (props) => {
                 starSize: generateClasses(
                   '',
                   classNames.starSize,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               }}
             />
@@ -140,7 +140,7 @@ const ProductCard: React.FC<Props> = (props) => {
               generateClasses(
                 'px-5 py-3 text-xs font-black leading-4 text-white uppercase bg-primary-dark',
                 classNames.cardCTA,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >
@@ -151,7 +151,7 @@ const ProductCard: React.FC<Props> = (props) => {
               generateClasses(
                 'text-xl font-bold leading-8',
                 classNames.price,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >

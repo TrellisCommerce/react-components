@@ -13,11 +13,11 @@ interface Props {
   onChange: (elementId: string, value: number | string) => {};
   value: number;
   elementId: string;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 const NumberInput: React.FC<Props> = (props) => {
-  const { classNames, onChange, value, elementId, OverrideClasses } = props;
+  const { classNames, onChange, value, elementId, overrideClasses } = props;
 
   return (
     <fieldset
@@ -25,7 +25,7 @@ const NumberInput: React.FC<Props> = (props) => {
         generateClasses(
           'flex border border-gray-300 w-min overflow-hidden h-8',
           classNames?.field?.root,
-          OverrideClasses,
+          overrideClasses,
         ),
       )}
     >
@@ -34,7 +34,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.minus,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
         onClick={() => value > 1 && onChange(elementId, value - 1)}
@@ -52,7 +52,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'w-8 text-center border-gray-300 border-x',
             classNames?.field?.input,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
       />
@@ -61,7 +61,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.plus,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
         onClick={() => onChange(elementId, value + 1)}

@@ -25,7 +25,7 @@ interface Props {
   maximumStarCount?: number;
   FilledStarSvgPaths?: React.FC;
   isEditable?: boolean;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
   CallToAction?: React.FC;
   onChange?: (val: number) => {};
 }
@@ -39,7 +39,7 @@ const StarRating: React.FC<Props> = ({
   isEditable,
   onChange,
   CallToAction,
-  OverrideClasses,
+  overrideClasses,
 }) => {
   const [selectedStar, setSelectedStar] = useState<undefined | number>(
     undefined,
@@ -116,7 +116,7 @@ const StarRating: React.FC<Props> = ({
           generateClasses(
             'flex items-center',
             classNames?.container,
-            OverrideClasses,
+            overrideClasses,
           ),
           isEditable && 'hover:cursor-pointer',
         ])}

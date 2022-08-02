@@ -32,7 +32,7 @@ interface Props {
   typeLabel: string;
   isColor: boolean;
   hasSizeGuide: boolean;
-  OverrideClasses: boolean;
+  overrideClasses: boolean;
   variants: Variant[];
   onSelection: (value: number) => {};
 }
@@ -44,7 +44,7 @@ const VariantSelector: React.FC<Props> = ({
   hasSizeGuide,
   variants,
   onSelection,
-  OverrideClasses,
+  overrideClasses,
 }) => {
   const [selectedVariantId, setSelectedVariantId] = useState();
 
@@ -57,7 +57,7 @@ const VariantSelector: React.FC<Props> = ({
               generateClasses(
                 'text-sm text-gray-900 font-medium',
                 classNames.headingTypeLabel,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >
@@ -76,7 +76,7 @@ const VariantSelector: React.FC<Props> = ({
                 generateClasses(
                   'sr-only',
                   classNames.radioGroupLabel,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -87,7 +87,7 @@ const VariantSelector: React.FC<Props> = ({
                 generateClasses(
                   'flex items-center space-x-3',
                   classNames.radioGroupOptionsWrapper,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -115,7 +115,7 @@ const VariantSelector: React.FC<Props> = ({
                           generateClasses(
                             'sr-only',
                             classNames.colorLabel,
-                            OverrideClasses,
+                            overrideClasses,
                           ),
                         )}
                       >
@@ -128,7 +128,7 @@ const VariantSelector: React.FC<Props> = ({
                           generateClasses(
                             'h-8 w-8 border border-black border-opacity-10',
                             classNames.colorSpan,
-                            OverrideClasses,
+                            overrideClasses,
                           ),
                         )}
                         style={{ backgroundColor: variant.color }}
@@ -140,7 +140,7 @@ const VariantSelector: React.FC<Props> = ({
                         generateClasses(
                           'h-8 w-8 opacity-30	 border border-Gray-800',
                           classNames.disabledColorSVG,
-                          OverrideClasses,
+                          overrideClasses,
                         ),
                       )}
                       style={{ backgroundColor: variant.color }}
@@ -180,7 +180,7 @@ const VariantSelector: React.FC<Props> = ({
               generateClasses(
                 'flex items-center justify-between',
                 classNames.headingContainer,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >
@@ -189,7 +189,7 @@ const VariantSelector: React.FC<Props> = ({
                 generateClasses(
                   'text-sm text-gray-900 font-medium',
                   classNames.headingTypeLabel,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -202,7 +202,7 @@ const VariantSelector: React.FC<Props> = ({
                   generateClasses(
                     'text-sm font-medium text-indigo-600 hover:text-indigo-500',
                     classNames.headingSizeGuideLabel,
-                    OverrideClasses,
+                    overrideClasses,
                   ),
                 )}
               >
@@ -221,7 +221,7 @@ const VariantSelector: React.FC<Props> = ({
               generateClasses(
                 'mt-6 max-w-xs',
                 classNames.radioGroup,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >
@@ -230,7 +230,7 @@ const VariantSelector: React.FC<Props> = ({
                 generateClasses(
                   'sr-only',
                   classNames.radioGroupLabel,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -241,7 +241,7 @@ const VariantSelector: React.FC<Props> = ({
                 generateClasses(
                   'grid grid-cols-[repeat(15,_minmax(max-content,_auto))] gap-4 auto-rows-max',
                   classNames.radioGroupOptionsWrapper,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -268,7 +268,7 @@ const VariantSelector: React.FC<Props> = ({
                           generateClasses(
                             'font-light text-sm uppercase',
                             classNames.radioGroupOptionLabel,
-                            OverrideClasses,
+                            overrideClasses,
                           ),
                         )}
                         as="p"
@@ -281,7 +281,7 @@ const VariantSelector: React.FC<Props> = ({
                             generateClasses(
                               'border absolute -inset-px pointer-events-none',
                               classNames.radioGroupOptionItem,
-                              OverrideClasses,
+                              overrideClasses,
                             ),
                           )}
                           aria-hidden="true"
@@ -293,7 +293,7 @@ const VariantSelector: React.FC<Props> = ({
                             generateClasses(
                               'absolute -inset-px border-2 border-gray-200 pointer-events-none',
                               classNames.disabledRadioGroupOptionItem,
-                              OverrideClasses,
+                              overrideClasses,
                             ),
                           )}
                         >
@@ -302,7 +302,7 @@ const VariantSelector: React.FC<Props> = ({
                               generateClasses(
                                 'absolute inset-0 w-full h-full text-gray-200 stroke-2 	',
                                 classNames.disabledSVG,
-                                OverrideClasses,
+                                overrideClasses,
                               ),
                             )}
                             viewBox="0 0 100 100"

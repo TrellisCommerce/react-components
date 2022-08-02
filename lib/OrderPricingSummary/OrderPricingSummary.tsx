@@ -23,7 +23,7 @@ interface Props {
   breakdown: BreakDown[];
   totalLabel: String;
   totalPrice: number;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
 /**
@@ -35,7 +35,7 @@ const OrderPricingSummary: React.FC<Props> = (props) => {
     breakdown,
     totalLabel,
     totalPrice,
-    OverrideClasses,
+    overrideClasses,
   } = props;
 
   return (
@@ -45,7 +45,7 @@ const OrderPricingSummary: React.FC<Props> = (props) => {
           generateClasses(
             'space-y-1',
             classNames.breakdownsContainer,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
       >
@@ -58,7 +58,7 @@ const OrderPricingSummary: React.FC<Props> = (props) => {
           >
             <dt
               className={clsx(
-                generateClasses('', classNames.breakdownLabel, OverrideClasses),
+                generateClasses('', classNames.breakdownLabel, overrideClasses),
               )}
             >
               {item.label}
@@ -68,7 +68,7 @@ const OrderPricingSummary: React.FC<Props> = (props) => {
                 generateClasses(
                   'text-gray-900',
                   classNames.breakdownPrice,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               )}
             >
@@ -83,20 +83,20 @@ const OrderPricingSummary: React.FC<Props> = (props) => {
           generateClasses(
             'flex items-center justify-between border-t border-gray-200 text-gray-900 pt-2 mt-3 font-medium ',
             classNames.totalWrapper,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
       >
         <dt
           className={clsx(
-            generateClasses('', classNames.totalLabel, OverrideClasses),
+            generateClasses('', classNames.totalLabel, overrideClasses),
           )}
         >
           {totalLabel}
         </dt>
         <dd
           className={clsx(
-            generateClasses('text-lg', classNames.totalPrice, OverrideClasses),
+            generateClasses('text-lg', classNames.totalPrice, overrideClasses),
           )}
         >
           {totalPrice}

@@ -20,13 +20,13 @@ interface Props {
   classNames?: ClassNames;
   features: Feature[];
   title: string;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 const Features: React.FC<Props> = ({
   classNames,
   features,
   title,
-  OverrideClasses,
+  overrideClasses,
 }) => {
   return (
     <div className={clsx('sm:m-8 lg:m-32 md:m-8 ', classNames?.container)}>
@@ -35,7 +35,7 @@ const Features: React.FC<Props> = ({
           generateClasses(
             'col-start-1 col-end-7 font-extrabold text-center text-5xl mb-12',
             classNames?.title,
-            OverrideClasses,
+            overrideClasses,
           ),
         )}
       >
@@ -53,7 +53,7 @@ const Features: React.FC<Props> = ({
               generateClasses(
                 'flex flex-col align-center text-center w-80 mx-auto',
                 classNames?.featureWrapper,
-                OverrideClasses,
+                overrideClasses,
               ),
             ])}
           >
@@ -71,7 +71,7 @@ const Features: React.FC<Props> = ({
                 generateClasses(
                   'pt-1 text-2xl font-bold mb-6',
                   classNames?.featureTitle,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               ])}
             >
@@ -82,7 +82,7 @@ const Features: React.FC<Props> = ({
                 generateClasses(
                   'pt-1 text-lg',
                   classNames?.featureSubtitle,
-                  OverrideClasses,
+                  overrideClasses,
                 ),
               ])}
             >

@@ -19,10 +19,10 @@ interface Metric {
 interface Props {
   classNames?: ClassNames;
   metrics: Metric[];
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
 }
 
-const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
+const Metrics: React.FC<Props> = ({ classNames, metrics, overrideClasses }) => {
   return (
     <div
       className={clsx([
@@ -37,7 +37,7 @@ const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
             generateClasses(
               'flex flex-col items-center',
               classNames?.metricWrapper,
-              OverrideClasses,
+              overrideClasses,
             ),
           ])}
         >
@@ -46,7 +46,7 @@ const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
               generateClasses(
                 'text-6xl font-bold',
                 classNames?.metricValue,
-                OverrideClasses,
+                overrideClasses,
               ),
             ])}
           >
@@ -54,7 +54,7 @@ const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
           </div>
           <div
             className={clsx([
-              generateClasses('pt-1', classNames?.metricLabel, OverrideClasses),
+              generateClasses('pt-1', classNames?.metricLabel, overrideClasses),
             ])}
           >
             {metric.label}

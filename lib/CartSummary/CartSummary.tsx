@@ -42,7 +42,7 @@ interface Props {
   emptyCartMessage: string;
   onRemove: (id: string) => {};
   isReadOnly: boolean;
-  OverrideClasses?: boolean;
+  overrideClasses?: boolean;
   onChange: (id: string, quantity: number) => {};
 }
 
@@ -54,7 +54,7 @@ const CartSummary: React.FC<Props> = (props) => {
     isReadOnly,
     onChange,
     onRemove,
-    OverrideClasses,
+    overrideClasses,
     emptyCartMessage,
   } = props;
 
@@ -82,7 +82,7 @@ const CartSummary: React.FC<Props> = (props) => {
               generateClasses(
                 'grid row-end-auto grid-cols-[.1fr,3.9fr,1fr,1fr] py-3 w-11/12',
                 classNames?.itemContainer,
-                OverrideClasses,
+                overrideClasses,
               ),
             )}
           >
@@ -96,7 +96,7 @@ const CartSummary: React.FC<Props> = (props) => {
                     generateClasses(
                       'max-w-[123px] max-h-[144px]',
                       classNames?.image,
-                      OverrideClasses,
+                      overrideClasses,
                     ),
                   )}
                 />
@@ -113,7 +113,7 @@ const CartSummary: React.FC<Props> = (props) => {
                     generateClasses(
                       'font-bold leading-6 text-[18px]',
                       classNames?.productTitle,
-                      OverrideClasses,
+                      overrideClasses,
                     ),
                   )}
                 >
@@ -124,7 +124,7 @@ const CartSummary: React.FC<Props> = (props) => {
                     generateClasses(
                       'text-sm text-gray-900 font-light leading-6',
                       classNames?.variantTitle,
-                      OverrideClasses,
+                      overrideClasses,
                     ),
                   )}
                 >
@@ -144,7 +144,7 @@ const CartSummary: React.FC<Props> = (props) => {
                       generateClasses(
                         'text-sm text-gray-500',
                         classNames?.quantityLabel,
-                        OverrideClasses,
+                        overrideClasses,
                       ),
                     )}
                   >
@@ -172,7 +172,7 @@ const CartSummary: React.FC<Props> = (props) => {
                   generateClasses(
                     'flex items-center leading-4',
                     classNames?.pricingContainer,
-                    OverrideClasses,
+                    overrideClasses,
                   ),
                 )}
               >
@@ -191,7 +191,7 @@ const CartSummary: React.FC<Props> = (props) => {
                   generateClasses(
                     'p-2',
                     classNames?.removeButton,
-                    OverrideClasses,
+                    overrideClasses,
                   ),
                 )}
                 onClick={() => onChange(item.id, item.quantity)}
