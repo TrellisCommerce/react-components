@@ -2,20 +2,21 @@ import clsx from 'clsx';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { generateClasses } from '../utils';
-import { PricingClassNames } from '../utils/types'
+import { PricingClassNames } from '../utils/types';
 
 interface Props {
-  classNames?: PricingClassNames,
-  originalPrice: string
-  promotionalPrice: string
-  OverrideClasses?: boolean
+  classNames?: PricingClassNames;
+  originalPrice: string;
+  promotionalPrice: string;
+  OverrideClasses?: boolean;
 }
 
 /**
  * Pricing component
  */
 const Pricing: React.FC<Props> = (props) => {
-  const { classNames, originalPrice, promotionalPrice, OverrideClasses } = props;
+  const { classNames, originalPrice, promotionalPrice, OverrideClasses } =
+    props;
 
   return (
     <div className="flex">
@@ -25,7 +26,7 @@ const Pricing: React.FC<Props> = (props) => {
             generateClasses(
               'text-md font-medium mr-1',
               classNames?.promotional,
-              OverrideClasses
+              OverrideClasses,
             ),
           ])}
         >

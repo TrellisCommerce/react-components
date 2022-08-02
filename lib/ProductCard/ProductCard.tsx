@@ -2,35 +2,35 @@ import clsx from 'clsx';
 import { ImageGallery } from '../ImageGallery';
 import { StarRating } from '../StarRating';
 import { generateClasses } from '../utils';
-import React from "react";
-import { Image } from "../utils/types";
+import React from 'react';
+import { Image } from '../utils/types';
 
 interface ClassNames {
-  root: string
-  imageWrapper: string
-  image: string
-  title: string
-  starSize: string
-  cardCTA: string
-  price: string
+  root: string;
+  imageWrapper: string;
+  image: string;
+  title: string;
+  starSize: string;
+  cardCTA: string;
+  price: string;
 }
 
 interface Props {
-  altImage: string
-  imageUrl: string
-  price: string
-  textCTA: string
-  title: string
-  reviews: string
-  url: string
-  variantImages: Image[]
-  starRating: number
-  classNames?: ClassNames
-  displayVariants: boolean
-  LinkComponent: JSX.Element|JSX.Element[]
-  onAddToCart: () => {}
-  Image: React.FC
-  OverrideClasses?: boolean
+  altImage: string;
+  imageUrl: string;
+  price: string;
+  textCTA: string;
+  title: string;
+  reviews: string;
+  url: string;
+  variantImages: Image[];
+  starRating: number;
+  classNames?: ClassNames;
+  displayVariants: boolean;
+  LinkComponent: JSX.Element | JSX.Element[];
+  onAddToCart: () => {};
+  Image: React.FC;
+  OverrideClasses?: boolean;
 }
 
 const ProductCard: React.FC<Props> = (props) => {
@@ -49,13 +49,17 @@ const ProductCard: React.FC<Props> = (props) => {
     title,
     url,
     variantImages = [],
-    OverrideClasses
+    OverrideClasses,
   } = props;
 
   return (
     <div
       className={clsx(
-        generateClasses('max-w-[282px] min-w-[160px] group', classNames.root, OverrideClasses),
+        generateClasses(
+          'max-w-[282px] min-w-[160px] group',
+          classNames.root,
+          OverrideClasses,
+        ),
       )}
     >
       <div
@@ -63,7 +67,7 @@ const ProductCard: React.FC<Props> = (props) => {
           generateClasses(
             'bg-slate-100 w-full overflow-hidden',
             classNames.imageWrapper,
-            OverrideClasses
+            OverrideClasses,
           ),
         )}
       >
@@ -78,12 +82,17 @@ const ProductCard: React.FC<Props> = (props) => {
                     thumbnailsReel: 'max-w-[282px] min-w-[160px]',
                   }}
                   images={variantImages}
-                  reelPosition="bottom"/>
+                  reelPosition="bottom"
+                />
               </div>
             )}
             <img
               className={clsx(
-                generateClasses('object-cover w-full h-full', classNames.image, OverrideClasses),
+                generateClasses(
+                  'object-cover w-full h-full',
+                  classNames.image,
+                  OverrideClasses,
+                ),
                 { 'group-hover:hidden': displayVariants },
               )}
               src={imageUrl}
@@ -103,7 +112,7 @@ const ProductCard: React.FC<Props> = (props) => {
                 generateClasses(
                   'text-lg font-bold leading-6',
                   classNames.title,
-                  OverrideClasses
+                  OverrideClasses,
                 ),
               )}
             >
@@ -114,7 +123,11 @@ const ProductCard: React.FC<Props> = (props) => {
             <StarRating
               starRating={starRating}
               classNames={{
-                starSize: generateClasses('', classNames.starSize, OverrideClasses),
+                starSize: generateClasses(
+                  '',
+                  classNames.starSize,
+                  OverrideClasses,
+                ),
               }}
             />
             <span className="inline-block ml-2 text-xs capitalize sm:mt-1 md:mt-0">
@@ -127,7 +140,7 @@ const ProductCard: React.FC<Props> = (props) => {
               generateClasses(
                 'px-5 py-3 text-xs font-black leading-4 text-white uppercase bg-primary-dark',
                 classNames.cardCTA,
-                OverrideClasses
+                OverrideClasses,
               ),
             )}
           >
@@ -135,7 +148,11 @@ const ProductCard: React.FC<Props> = (props) => {
           </button>
           <p
             className={clsx(
-              generateClasses('text-xl font-bold leading-8', classNames.price, OverrideClasses),
+              generateClasses(
+                'text-xl font-bold leading-8',
+                classNames.price,
+                OverrideClasses,
+              ),
             )}
           >
             ${price?.toLocaleString()}

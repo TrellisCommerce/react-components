@@ -12,22 +12,22 @@ const FilledStarPath = () => (
 );
 
 interface ClassNames {
-  starSize?: string
-  activeStar?: string
-  inactiveStar?: string
-  container?: string
+  starSize?: string;
+  activeStar?: string;
+  inactiveStar?: string;
+  container?: string;
 }
 
 interface Props {
-  classNames?: ClassNames
-  starRating: number
-  StarSvgPaths?: React.FC
-  maximumStarCount?: number
-  FilledStarSvgPaths?: React.FC
-  isEditable?: boolean
-  OverrideClasses?: boolean
-  CallToAction?: React.FC,
-  onChange?: (val: number) => {}
+  classNames?: ClassNames;
+  starRating: number;
+  StarSvgPaths?: React.FC;
+  maximumStarCount?: number;
+  FilledStarSvgPaths?: React.FC;
+  isEditable?: boolean;
+  OverrideClasses?: boolean;
+  CallToAction?: React.FC;
+  onChange?: (val: number) => {};
 }
 
 const StarRating: React.FC<Props> = ({
@@ -39,9 +39,11 @@ const StarRating: React.FC<Props> = ({
   isEditable,
   onChange,
   CallToAction,
-                                       OverrideClasses
+  OverrideClasses,
 }) => {
-  const [selectedStar, setSelectedStar] = useState<undefined | number>(undefined);
+  const [selectedStar, setSelectedStar] = useState<undefined | number>(
+    undefined,
+  );
 
   const humanFriendlyStarRating = Number.isInteger(starRating)
     ? starRating
@@ -54,8 +56,7 @@ const StarRating: React.FC<Props> = ({
 
     for (let i = 0; i < maximumStarCount; i += 1) {
       isActiveStar =
-        (!selectedStar && i < starRating) ||
-        (isEditable && i < selectedStar);
+        (!selectedStar && i < starRating) || (isEditable && i < selectedStar);
 
       starComponents.push(
         <svg
@@ -112,7 +113,11 @@ const StarRating: React.FC<Props> = ({
 
       <div
         className={clsx([
-          generateClasses('flex items-center', classNames?.container, OverrideClasses),
+          generateClasses(
+            'flex items-center',
+            classNames?.container,
+            OverrideClasses,
+          ),
           isEditable && 'hover:cursor-pointer',
         ])}
       >

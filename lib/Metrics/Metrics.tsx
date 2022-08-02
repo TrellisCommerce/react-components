@@ -4,22 +4,22 @@ import clsx from 'clsx';
 import { generateClasses } from '../utils';
 
 interface ClassNames {
-  container?: string
-  metricWrapper?: string
-  metricValue?: string
-  metricLabel?: string
+  container?: string;
+  metricWrapper?: string;
+  metricValue?: string;
+  metricLabel?: string;
 }
 
 interface Metric {
-  id: string
-  label: string
-  value: string
+  id: string;
+  label: string;
+  value: string;
 }
 
 interface Props {
-  classNames?: ClassNames
-  metrics: Metric[]
-  OverrideClasses?: boolean
+  classNames?: ClassNames;
+  metrics: Metric[];
+  OverrideClasses?: boolean;
 }
 
 const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
@@ -37,19 +37,25 @@ const Metrics: React.FC<Props> = ({ classNames, metrics, OverrideClasses }) => {
             generateClasses(
               'flex flex-col items-center',
               classNames?.metricWrapper,
-              OverrideClasses
+              OverrideClasses,
             ),
           ])}
         >
           <div
             className={clsx([
-              generateClasses('text-6xl font-bold', classNames?.metricValue, OverrideClasses),
+              generateClasses(
+                'text-6xl font-bold',
+                classNames?.metricValue,
+                OverrideClasses,
+              ),
             ])}
           >
             {metric.value}
           </div>
           <div
-            className={clsx([generateClasses('pt-1', classNames?.metricLabel, OverrideClasses)])}
+            className={clsx([
+              generateClasses('pt-1', classNames?.metricLabel, OverrideClasses),
+            ])}
           >
             {metric.label}
           </div>

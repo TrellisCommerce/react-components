@@ -4,25 +4,25 @@ import clsx from 'clsx';
 import { generateClasses } from '../utils';
 
 interface ClassNames {
-  root?: string
-  container?: string
-  textContainer?: string
-  layout?: string
-  title?: string
-  paragraph?: string
-  imageContainer?: string
-  imageWrapper?: string
-  image?: string
+  root?: string;
+  container?: string;
+  textContainer?: string;
+  layout?: string;
+  title?: string;
+  paragraph?: string;
+  imageContainer?: string;
+  imageWrapper?: string;
+  image?: string;
 }
 
 interface Props {
-  classNames?: ClassNames
-  imageAltText: string
-  Image: React.FC
-  imageSrc: string
-  paragraphText: string
-  titleText: string
-  OverrideClasses?: boolean
+  classNames?: ClassNames;
+  imageAltText: string;
+  Image: React.FC;
+  imageSrc: string;
+  paragraphText: string;
+  titleText: string;
+  OverrideClasses?: boolean;
 }
 
 const HeroImageWithText: React.FC<Props> = ({
@@ -32,13 +32,25 @@ const HeroImageWithText: React.FC<Props> = ({
   imageSrc,
   paragraphText,
   titleText,
-                                              OverrideClasses
+  OverrideClasses,
 }) => (
-  <section className={clsx([generateClasses('h-128', classNames.root, OverrideClasses)])}>
-    <div className={clsx([generateClasses('h-full', classNames.container, OverrideClasses)])}>
+  <section
+    className={clsx([
+      generateClasses('h-128', classNames.root, OverrideClasses),
+    ])}
+  >
+    <div
+      className={clsx([
+        generateClasses('h-full', classNames.container, OverrideClasses),
+      ])}
+    >
       <div
         className={clsx([
-          generateClasses('h-full md:flex md:items-stretch', classNames.layout, OverrideClasses),
+          generateClasses(
+            'h-full md:flex md:items-stretch',
+            classNames.layout,
+            OverrideClasses,
+          ),
         ])}
       >
         <div
@@ -46,7 +58,7 @@ const HeroImageWithText: React.FC<Props> = ({
             generateClasses(
               'md:mr-lg max-w-lg my-6 mx-8 md:my-12 md:mx-16 md:flex md:justify-center md:flex-col md:basis-full',
               classNames.textContainer,
-              OverrideClasses
+              OverrideClasses,
             ),
           ])}
         >
@@ -55,21 +67,27 @@ const HeroImageWithText: React.FC<Props> = ({
               generateClasses(
                 'mb-6 md:mb-sm font-black text-3xl',
                 classNames.title,
-                OverrideClasses
+                OverrideClasses,
               ),
             ])}
           >
             {titleText}
           </h4>
           <p
-            className={clsx([generateClasses('text-lg', classNames.paragraph, OverrideClasses)])}
+            className={clsx([
+              generateClasses('text-lg', classNames.paragraph, OverrideClasses),
+            ])}
           >
             {paragraphText}
           </p>
         </div>
         <div
           className={clsx([
-            generateClasses('w-full md:basis-full', classNames.imageContainer, OverrideClasses),
+            generateClasses(
+              'w-full md:basis-full',
+              classNames.imageContainer,
+              OverrideClasses,
+            ),
           ])}
         >
           {Image ? (
@@ -80,7 +98,7 @@ const HeroImageWithText: React.FC<Props> = ({
                 generateClasses(
                   'relative pb-3/4 md:pb-0 bg-primary overflow-hidden w-full md:h-full',
                   classNames.imageWrapper,
-                  OverrideClasses
+                  OverrideClasses,
                 ),
               ])}
             >
@@ -89,7 +107,7 @@ const HeroImageWithText: React.FC<Props> = ({
                   generateClasses(
                     'top-0 w-full h-full min-h-2/3 object-cover absolute z-0',
                     classNames.image,
-                    OverrideClasses
+                    OverrideClasses,
                   ),
                 ])}
                 src={imageSrc}

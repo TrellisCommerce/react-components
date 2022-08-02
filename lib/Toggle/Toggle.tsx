@@ -12,22 +12,25 @@ const defaultStyles: ClassNames = {
 };
 
 interface ClassNames {
-  switch: string
-  switchEnabled: string
-  switchDisabled: string
-  label: string
-  labelDisabled: string
-  labelEnabled: string
+  switch: string;
+  switchEnabled: string;
+  switchDisabled: string;
+  label: string;
+  labelDisabled: string;
+  labelEnabled: string;
 }
 
 interface Props {
-  classNames?: ClassNames
-  label: string
-  overrideDefaults: boolean
+  classNames?: ClassNames;
+  label: string;
+  overrideDefaults: boolean;
 }
 
-
-const Toggle: React.FC<Props> =({ classNames = {}, label = '', overrideDefaults = false }) => {
+const Toggle: React.FC<Props> = ({
+  classNames = {},
+  label = '',
+  overrideDefaults = false,
+}) => {
   const [enabled, setEnabled] = useState(false);
 
   const getMergedStyles = useMergedStyles(classNames, defaultStyles, {
@@ -54,6 +57,6 @@ const Toggle: React.FC<Props> =({ classNames = {}, label = '', overrideDefaults 
       />
     </Switch>
   );
-}
+};
 
 export default Toggle;

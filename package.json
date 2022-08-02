@@ -16,12 +16,12 @@
     "build-storybook": "build-storybook",
     "next-dev": "next dev",
     "build": "rm -rf /dist && npm run build:esm && npm run build:cjs && npm run next-build",
-    "build:esm": "node_modules/typescript/bin//tsc --preserveWatchOutput --jsx react-jsx",
-    "build:cjs": "node_modules/typescript/bin//tsc --module CommonJS --outDir dist/cjs",
+    "build:esm": "tsc --preserveWatchOutput --jsx react-jsx",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "next-build": "ISNEXT=true next build && build-storybook -o ./public/storybook-static",
     "next-start": "next start",
     "start": "ISNEXT=true next start",
-    "watch": "node_modules/typescript/bin//tsc -w --preserveWatchOutput --jsx react-jsx"
+    "watch": "tsc -w --preserveWatchOutput --jsx react-jsx"
   },
   "repository": {
     "type": "git",

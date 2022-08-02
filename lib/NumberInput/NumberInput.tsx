@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { generateClasses } from '../utils';
-import {Field} from "../utils/types";
+import { Field } from '../utils/types';
 
 interface ClassNames {
-  field?: Field
+  field?: Field;
 }
 
 interface Props {
-  classNames?: ClassNames
-  onChange: (elementId: string, value: number | string) => {}
-  value: number
-  elementId: string
-  OverrideClasses?: boolean
+  classNames?: ClassNames;
+  onChange: (elementId: string, value: number | string) => {};
+  value: number;
+  elementId: string;
+  OverrideClasses?: boolean;
 }
 
 const NumberInput: React.FC<Props> = (props) => {
@@ -25,7 +25,7 @@ const NumberInput: React.FC<Props> = (props) => {
         generateClasses(
           'flex border border-gray-300 w-min overflow-hidden h-8',
           classNames?.field?.root,
-          OverrideClasses
+          OverrideClasses,
         ),
       )}
     >
@@ -34,7 +34,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.minus,
-            OverrideClasses
+            OverrideClasses,
           ),
         )}
         onClick={() => value > 1 && onChange(elementId, value - 1)}
@@ -52,7 +52,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'w-8 text-center border-gray-300 border-x',
             classNames?.field?.input,
-            OverrideClasses
+            OverrideClasses,
           ),
         )}
       />
@@ -61,7 +61,7 @@ const NumberInput: React.FC<Props> = (props) => {
           generateClasses(
             'px-1 text-slate-300 hover:text-black hover:bg-slate-100 focus:bg-slate-300 focus:text-black w-8',
             classNames?.field?.plus,
-            OverrideClasses
+            OverrideClasses,
           ),
         )}
         onClick={() => onChange(elementId, value + 1)}
@@ -70,7 +70,7 @@ const NumberInput: React.FC<Props> = (props) => {
       </button>
     </fieldset>
   );
-}
+};
 
 NumberInput.defaultProps = {
   onChange: (id, quantity) => ({ id, quantity }),

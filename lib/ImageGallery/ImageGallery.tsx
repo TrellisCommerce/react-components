@@ -6,28 +6,27 @@ import RightChevron from './RightChevron';
 import useDrag from '../hooks/useDrag';
 import { debounce } from '../utils';
 import { generateClasses } from '../utils';
-import React from "react";
-import { Image } from "../utils/types";
+import React from 'react';
+import { Image } from '../utils/types';
 
 interface ClassNames {
-  mainImageWrapper?: string
-  thumbnailsReel?: string
-  thumbnailWrapper?: string
-  thumbnailImage?: string
+  mainImageWrapper?: string;
+  thumbnailsReel?: string;
+  thumbnailWrapper?: string;
+  thumbnailImage?: string;
 }
 
-
 interface Props {
-  classNames?: ClassNames
-  Badge?: string
-  displayArrows?: boolean
-  images: Image[]
-  MainImageComponent?: React.FC
-  magnifyOnHover?: boolean
-  navigateOnHover?: boolean
-  reelPosition: string
-  onMainImageChange?: (imageUrl: string) => {}
-  OverrideClasses?: boolean
+  classNames?: ClassNames;
+  Badge?: string;
+  displayArrows?: boolean;
+  images: Image[];
+  MainImageComponent?: React.FC;
+  magnifyOnHover?: boolean;
+  navigateOnHover?: boolean;
+  reelPosition: string;
+  onMainImageChange?: (imageUrl: string) => {};
+  OverrideClasses?: boolean;
 }
 
 const ImageGallery: React.FC<Props> = ({
@@ -40,7 +39,7 @@ const ImageGallery: React.FC<Props> = ({
   navigateOnHover = false,
   reelPosition = 'bottom',
   onMainImageChange,
-                                         OverrideClasses,
+  OverrideClasses,
 }) => {
   const scrollableReel: React.RefObject<HTMLInputElement> = useRef();
   const [scrollForward, setScrollForward] = useState(false);
@@ -100,7 +99,7 @@ const ImageGallery: React.FC<Props> = ({
       }
     });
 
-  const handleThumbnailChange = (index: any) => {
+  const handleThumbnailChange = (index: number) => {
     if (!dragging) {
       setGalleryIndex(index);
     }
@@ -173,7 +172,7 @@ const ImageGallery: React.FC<Props> = ({
           generateClasses(
             'relative cursor-pointer h-full w-full overflow-hidden',
             classNames.mainImageWrapper,
-            OverrideClasses
+            OverrideClasses,
           ),
           {
             'lg:order-2': isThumbnailsSide,
@@ -220,7 +219,7 @@ const ImageGallery: React.FC<Props> = ({
             generateClasses(
               'flex shrink-0 scrollbar-hide',
               classNames.thumbnailsReel,
-              OverrideClasses
+              OverrideClasses,
             ),
             {
               'flex-col ml-1 space-y-1 lg:ml-0 lg:mr-4 lg:space-y-2 overflow-y-auto overflow-x-hidden h-56 md:h-80 lg:h-120':
@@ -258,7 +257,7 @@ const ImageGallery: React.FC<Props> = ({
                     generateClasses(
                       'object-contain w-full h-full',
                       classNames.thumbnailImage,
-                      OverrideClasses
+                      OverrideClasses,
                     ),
                   )}
                 />

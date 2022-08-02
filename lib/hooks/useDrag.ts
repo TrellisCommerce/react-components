@@ -20,7 +20,10 @@ export default function useDrag() {
     [],
   );
 
-  const dragMove = ({ clientX, clientY }: any, callBack: (arg0: { positionDiffX: number; positionDiffY: number; }) => void) => {
+  const dragMove = (
+    { clientX, clientY }: any,
+    callBack: (arg0: { positionDiffX: number; positionDiffY: number }) => void,
+  ) => {
     const positionDiffX = position.positionX - clientX;
     const positionDiffY = position.positionY - clientY;
     const movedEnough =

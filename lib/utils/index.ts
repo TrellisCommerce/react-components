@@ -20,14 +20,14 @@ export const debounce = (func: (index: number) => void) => {
  * @param obj
  * @returns {*}
  */
-export const firstItemInAnObject = (obj:  any) => {
+export const firstItemInAnObject = (obj: any) => {
   return obj[Object.keys(obj)[0]];
 };
 
 interface ClassName {
-  overrideDefaults: boolean
-  styles: string
-  classOverride: boolean
+  overrideDefaults: boolean;
+  styles: string;
+  classOverride: boolean;
 }
 
 /*
@@ -36,8 +36,12 @@ interface ClassName {
  * @param classNames
  * @returns {string}
  */
-export const generateClasses = (classes: string, classNames: string, shouldOverride: boolean) => {
-  if(shouldOverride) {
+export const generateClasses = (
+  classes: string,
+  classNames: string,
+  shouldOverride: boolean,
+) => {
+  if (shouldOverride) {
     classes = classNames;
   } else {
     classes = `${classes} ${classNames}`;

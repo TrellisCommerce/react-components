@@ -17,7 +17,13 @@ function page(props: any) {
 
 export default page;
 
-export const getServerSideProps: ({ query, params }: { query: any; params: any }) => { props: any } = ({ query, params }) => {
+export const getServerSideProps: ({
+  query,
+  params,
+}: {
+  query: any;
+  params: any;
+}) => { props: any } = ({ query, params }) => {
   const props = JSON.parse(query.args);
   return { props: { ...props, ...params } };
-}
+};

@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 export default function useMergedStyles(
   classNames: any,
   defaultStyles: any,
-  { overrideDefaults = false }: { overrideDefaults: boolean; },
+  { overrideDefaults = false }: { overrideDefaults: boolean },
 ) {
   return useCallback(
     (key: string) => {

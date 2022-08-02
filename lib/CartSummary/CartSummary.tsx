@@ -5,46 +5,45 @@ import clsx from 'clsx';
 import NumberInput from '../NumberInput/NumberInput';
 import { firstItemInAnObject } from '../utils';
 import { generateClasses } from '../utils';
-import {Field} from "../utils/types";
-import {PricingClassNames} from '../utils/types'
-
+import { Field } from '../utils/types';
+import { PricingClassNames } from '../utils/types';
 
 interface ClassNames {
-  root?: string
-  image?: string
-  productTitle?: string
-  variantTitle?: string
-  quantityLabel?: string
-  pricingContainer?: string
-  removeButton?: string
-  pricing?: PricingClassNames
-  itemContainer?: string
-  field?: Field
+  root?: string;
+  image?: string;
+  productTitle?: string;
+  variantTitle?: string;
+  quantityLabel?: string;
+  pricingContainer?: string;
+  removeButton?: string;
+  pricing?: PricingClassNames;
+  itemContainer?: string;
+  field?: Field;
 }
 
 interface CartItem {
-  id: string,
-  Image: string,
-  imageUrl: string
-  imageAlt: string
-  title: string
-  variantTitle: string
-  quantity: number
-  originalPrice: string
-  promotionalPrice: string
-  pricing: string
+  id: string;
+  Image: string;
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  variantTitle: string;
+  quantity: number;
+  originalPrice: string;
+  promotionalPrice: string;
+  pricing: string;
 }
 
 interface Props {
-  classNames?: ClassNames,
-  cartItems: CartItem[]
-  quantityLabel: string
-  removeLabel: string
-  emptyCartMessage: string
-  onRemove: (id: string) => {}
-  isReadOnly: boolean
-  OverrideClasses?: boolean
-  onChange: (id: string, quantity: number) => {}
+  classNames?: ClassNames;
+  cartItems: CartItem[];
+  quantityLabel: string;
+  removeLabel: string;
+  emptyCartMessage: string;
+  onRemove: (id: string) => {};
+  isReadOnly: boolean;
+  OverrideClasses?: boolean;
+  onChange: (id: string, quantity: number) => {};
 }
 
 const CartSummary: React.FC<Props> = (props) => {
@@ -56,7 +55,7 @@ const CartSummary: React.FC<Props> = (props) => {
     onChange,
     onRemove,
     OverrideClasses,
-    emptyCartMessage
+    emptyCartMessage,
   } = props;
 
   return (
@@ -67,11 +66,9 @@ const CartSummary: React.FC<Props> = (props) => {
         <h5 className="">{quantityLabel}</h5>
         <h5 className="">Price</h5>
       </header>
-      {cartItems.length <= 0 &&
-        <p className="text-center">
-          {emptyCartMessage}
-        </p>
-      }
+      {cartItems.length <= 0 && (
+        <p className="text-center">{emptyCartMessage}</p>
+      )}
       {cartItems?.map((item) => (
         <div
           key={item.id}
@@ -85,7 +82,7 @@ const CartSummary: React.FC<Props> = (props) => {
               generateClasses(
                 'grid row-end-auto grid-cols-[.1fr,3.9fr,1fr,1fr] py-3 w-11/12',
                 classNames?.itemContainer,
-                OverrideClasses
+                OverrideClasses,
               ),
             )}
           >
@@ -97,10 +94,10 @@ const CartSummary: React.FC<Props> = (props) => {
                   src={item.imageUrl}
                   className={clsx(
                     generateClasses(
-                    'max-w-[123px] max-h-[144px]',
-                    classNames?.image,
-                      OverrideClasses
-                    )
+                      'max-w-[123px] max-h-[144px]',
+                      classNames?.image,
+                      OverrideClasses,
+                    ),
                   )}
                 />
               )}
@@ -116,7 +113,7 @@ const CartSummary: React.FC<Props> = (props) => {
                     generateClasses(
                       'font-bold leading-6 text-[18px]',
                       classNames?.productTitle,
-                      OverrideClasses
+                      OverrideClasses,
                     ),
                   )}
                 >
@@ -127,7 +124,7 @@ const CartSummary: React.FC<Props> = (props) => {
                     generateClasses(
                       'text-sm text-gray-900 font-light leading-6',
                       classNames?.variantTitle,
-                      OverrideClasses
+                      OverrideClasses,
                     ),
                   )}
                 >
@@ -147,7 +144,7 @@ const CartSummary: React.FC<Props> = (props) => {
                       generateClasses(
                         'text-sm text-gray-500',
                         classNames?.quantityLabel,
-                        OverrideClasses
+                        OverrideClasses,
                       ),
                     )}
                   >
@@ -175,7 +172,7 @@ const CartSummary: React.FC<Props> = (props) => {
                   generateClasses(
                     'flex items-center leading-4',
                     classNames?.pricingContainer,
-                    OverrideClasses
+                    OverrideClasses,
                   ),
                 )}
               >
@@ -191,7 +188,11 @@ const CartSummary: React.FC<Props> = (props) => {
             {!isReadOnly && (
               <button
                 className={clsx(
-                  generateClasses('p-2', classNames?.removeButton, OverrideClasses),
+                  generateClasses(
+                    'p-2',
+                    classNames?.removeButton,
+                    OverrideClasses,
+                  ),
                 )}
                 onClick={() => onChange(item.id, item.quantity)}
               >
@@ -203,7 +204,7 @@ const CartSummary: React.FC<Props> = (props) => {
       ))}
     </div>
   );
-}
+};
 
 CartSummary.defaultProps = {
   quantityLabel: 'Qty:',

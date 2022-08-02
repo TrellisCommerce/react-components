@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 interface Props {
-  className: string
-  viewBox?: string
-  onClick?: () => void
+  className: string;
+  viewBox?: string;
+  onClick?: () => void;
 }
 const LeftChevron: React.FC<Props> = ({ ...props }) => {
   return (
