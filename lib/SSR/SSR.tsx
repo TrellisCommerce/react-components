@@ -5,6 +5,7 @@ const url =
     ? 'http://localhost:3000/'
     : `${window.location.origin}/`;
 
+// @ts-ignore
 function SSR({ component, ...props }) {
   const [html, setHtml] = useState();
 
@@ -18,6 +19,7 @@ function SSR({ component, ...props }) {
 
     const response = await fetch(fetchUrl);
     const result = await response.text();
+    // @ts-ignore
     setHtml(result);
   };
 

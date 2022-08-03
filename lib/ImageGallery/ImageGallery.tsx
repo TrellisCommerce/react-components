@@ -6,8 +6,30 @@ import RightChevron from './RightChevron';
 import useDrag from '../hooks/useDrag';
 import { debounce } from '../utils';
 import { generateClasses } from '../utils';
+import React from 'react';
+import { Image } from '../utils/types';
 
-const ImageGallery = ({
+interface ClassNames {
+  mainImageWrapper?: string;
+  thumbnailsReel?: string;
+  thumbnailWrapper?: string;
+  thumbnailImage?: string;
+}
+
+interface Props {
+  classNames?: ClassNames;
+  Badge?: string;
+  displayArrows?: boolean;
+  images: Image[];
+  MainImageComponent?: React.FC;
+  magnifyOnHover?: boolean;
+  navigateOnHover?: boolean;
+  reelPosition: string;
+  onMainImageChange?: (imageUrl: string) => {};
+  overrideClasses?: boolean;
+}
+
+const ImageGallery: React.FC<Props> = ({
   Badge,
   classNames = {},
   displayArrows = false,
@@ -17,8 +39,9 @@ const ImageGallery = ({
   navigateOnHover = false,
   reelPosition = 'bottom',
   onMainImageChange,
+  overrideClasses,
 }) => {
-  const scrollableReel = useRef();
+  const scrollableReel: React.RefObject<HTMLInputElement> = useRef();
   const [scrollForward, setScrollForward] = useState(false);
   const { dragStart, dragMove, dragging } = useDrag();
   const [galleryIndex, setGalleryIndex] = useState(() => {
@@ -65,7 +88,7 @@ const ImageGallery = ({
     trackMouse: true,
   });
 
-  const handleDrag = (mouseMoveEvent) =>
+  const handleDrag = (mouseMoveEvent: React.MouseEvent) =>
     dragMove(mouseMoveEvent, ({ positionDiffX, positionDiffY }) => {
       if (scrollableReel.current) {
         if (isThumbnailsBottom) {
@@ -76,7 +99,7 @@ const ImageGallery = ({
       }
     });
 
-  const handleThumbnailChange = (index) => {
+  const handleThumbnailChange = (index: number) => {
     if (!dragging) {
       setGalleryIndex(index);
     }
@@ -86,6 +109,7 @@ const ImageGallery = ({
     if (scrollableReel.current) {
       if (isThumbnailsBottom) {
         scrollableReel.current.scrollLeft += 50;
+        // @ts-ignore
         setDragging(true);
       } else {
         scrollableReel.current.scrollTop += 50;
@@ -148,6 +172,7 @@ const ImageGallery = ({
           generateClasses(
             'relative cursor-pointer h-full w-full overflow-hidden',
             classNames.mainImageWrapper,
+            overrideClasses,
           ),
           {
             'lg:order-2': isThumbnailsSide,
@@ -194,6 +219,7 @@ const ImageGallery = ({
             generateClasses(
               'flex shrink-0 scrollbar-hide',
               classNames.thumbnailsReel,
+              overrideClasses,
             ),
             {
               'flex-col ml-1 space-y-1 lg:ml-0 lg:mr-4 lg:space-y-2 overflow-y-auto overflow-x-hidden h-56 md:h-80 lg:h-120':
@@ -231,6 +257,7 @@ const ImageGallery = ({
                     generateClasses(
                       'object-contain w-full h-full',
                       classNames.thumbnailImage,
+                      overrideClasses,
                     ),
                   )}
                 />

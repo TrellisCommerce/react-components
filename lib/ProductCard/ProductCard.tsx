@@ -2,11 +2,41 @@ import clsx from 'clsx';
 import { ImageGallery } from '../ImageGallery';
 import { StarRating } from '../StarRating';
 import { generateClasses } from '../utils';
+import React from 'react';
+import { Image } from '../utils/types';
 
-const ProductCard = (props) => {
+interface ClassNames {
+  root: string;
+  imageWrapper: string;
+  image: string;
+  title: string;
+  starSize: string;
+  cardCTA: string;
+  price: string;
+}
+
+interface Props {
+  altImage: string;
+  imageUrl: string;
+  price: string;
+  textCTA: string;
+  title: string;
+  reviews: string;
+  url: string;
+  variantImages: Image[];
+  starRating: number;
+  classNames?: ClassNames;
+  displayVariants: boolean;
+  LinkComponent: JSX.Element | JSX.Element[];
+  onAddToCart: () => {};
+  Image: React.FC;
+  overrideClasses?: boolean;
+}
+
+const ProductCard: React.FC<Props> = (props) => {
   const {
     altImage,
-    classNames = {},
+    classNames,
     displayVariants = false,
     Image: ImageComponent,
     imageUrl,
@@ -19,12 +49,17 @@ const ProductCard = (props) => {
     title,
     url,
     variantImages = [],
+    overrideClasses,
   } = props;
 
   return (
     <div
       className={clsx(
-        generateClasses('max-w-[282px] min-w-[160px] group', classNames.root),
+        generateClasses(
+          'max-w-[282px] min-w-[160px] group',
+          classNames.root,
+          overrideClasses,
+        ),
       )}
     >
       <div
@@ -32,6 +67,7 @@ const ProductCard = (props) => {
           generateClasses(
             'bg-slate-100 w-full overflow-hidden',
             classNames.imageWrapper,
+            overrideClasses,
           ),
         )}
       >
@@ -47,13 +83,16 @@ const ProductCard = (props) => {
                   }}
                   images={variantImages}
                   reelPosition="bottom"
-                  navigateOnHover
                 />
               </div>
             )}
             <img
               className={clsx(
-                generateClasses('object-cover w-full h-full', classNames.image),
+                generateClasses(
+                  'object-cover w-full h-full',
+                  classNames.image,
+                  overrideClasses,
+                ),
                 { 'group-hover:hidden': displayVariants },
               )}
               src={imageUrl}
@@ -73,6 +112,7 @@ const ProductCard = (props) => {
                 generateClasses(
                   'text-lg font-bold leading-6',
                   classNames.title,
+                  overrideClasses,
                 ),
               )}
             >
@@ -83,7 +123,11 @@ const ProductCard = (props) => {
             <StarRating
               starRating={starRating}
               classNames={{
-                starSize: generateClasses('', classNames.starSize),
+                starSize: generateClasses(
+                  '',
+                  classNames.starSize,
+                  overrideClasses,
+                ),
               }}
             />
             <span className="inline-block ml-2 text-xs capitalize sm:mt-1 md:mt-0">
@@ -96,6 +140,7 @@ const ProductCard = (props) => {
               generateClasses(
                 'px-5 py-3 text-xs font-black leading-4 text-white uppercase bg-primary-dark',
                 classNames.cardCTA,
+                overrideClasses,
               ),
             )}
           >
@@ -103,7 +148,11 @@ const ProductCard = (props) => {
           </button>
           <p
             className={clsx(
-              generateClasses('text-xl font-bold leading-8', classNames.price),
+              generateClasses(
+                'text-xl font-bold leading-8',
+                classNames.price,
+                overrideClasses,
+              ),
             )}
           >
             ${price?.toLocaleString()}

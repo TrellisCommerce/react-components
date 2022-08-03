@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Switch } from '@headlessui/react';
 import useMergedStyles from '../hooks/useMergedStyles';
 
-const defaultStyles = {
+const defaultStyles: ClassNames = {
   switch: 'relative inline-flex items-center h-6 rounded-full w-10',
   switchEnabled: 'bg-blue-600',
   switchDisabled: 'bg-gray-200',
@@ -11,7 +11,26 @@ const defaultStyles = {
   labelDisabled: 'translate-x-1',
 };
 
-function Toggle({ classNames = {}, label = '', overrideDefaults = false }) {
+interface ClassNames {
+  switch: string;
+  switchEnabled: string;
+  switchDisabled: string;
+  label: string;
+  labelDisabled: string;
+  labelEnabled: string;
+}
+
+interface Props {
+  classNames?: ClassNames;
+  label: string;
+  overrideDefaults: boolean;
+}
+
+const Toggle: React.FC<Props> = ({
+  classNames = {},
+  label = '',
+  overrideDefaults = false,
+}) => {
   const [enabled, setEnabled] = useState(false);
 
   const getMergedStyles = useMergedStyles(classNames, defaultStyles, {
@@ -38,6 +57,6 @@ function Toggle({ classNames = {}, label = '', overrideDefaults = false }) {
       />
     </Switch>
   );
-}
+};
 
 export default Toggle;
