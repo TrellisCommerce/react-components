@@ -210,7 +210,7 @@ CartSummary.defaultProps = {
   quantityLabel: 'Qty:',
   isReadOnly: true,
   onChange: (id, quantity) => ({ id, quantity }),
-  onRemove: (id: string) => ({ id })
+  onRemove: (id: string) => ({ id }),
 };
 
 export default CartSummary;

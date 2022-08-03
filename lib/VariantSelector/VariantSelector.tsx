@@ -29,9 +29,10 @@ interface Variant {
 
 interface Props {
   classNames?: ClassNames;
-  typeLabel: string;
+  typeLabel?: 'color' | 'sizes';
   isColor: boolean;
-  hasSizeGuide: boolean;
+  hasSizeGuide?: boolean;
+  sizeGuideUrl?: string;
   overrideClasses: boolean;
   variants: Variant[];
   onSelection: (value: number) => {};
@@ -42,12 +43,12 @@ const VariantSelector: React.FC<Props> = ({
   typeLabel,
   isColor,
   hasSizeGuide,
+  sizeGuideUrl,
   variants,
   onSelection,
   overrideClasses,
 }) => {
   const [selectedVariantId, setSelectedVariantId] = useState();
-
   return (
     <>
       {isColor ? (
@@ -197,7 +198,7 @@ const VariantSelector: React.FC<Props> = ({
             </h3>
             {hasSizeGuide && (
               <a
-                href="#"
+                href={sizeGuideUrl}
                 className={clsx(
                   generateClasses(
                     'text-sm font-medium text-indigo-600 hover:text-indigo-500',
