@@ -3,9 +3,9 @@
  * @param func
  * @returns {(function(...[*]): void)|*}
  */
-export const debounce = (func) => {
-  let timer;
-  return function (...args) {
+export const debounce = (func: (index: number) => void) => {
+  let timer: string | number | NodeJS.Timeout;
+  return function (...args: any) {
     const context = this;
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
@@ -20,9 +20,15 @@ export const debounce = (func) => {
  * @param obj
  * @returns {*}
  */
-export const firstItemInAnObject = (obj) => {
+export const firstItemInAnObject = (obj: any) => {
   return obj[Object.keys(obj)[0]];
 };
+
+interface ClassName {
+  overrideDefaults: boolean;
+  styles: string;
+  classOverride: boolean;
+}
 
 /*
  * Generate component custom classes
@@ -30,14 +36,15 @@ export const firstItemInAnObject = (obj) => {
  * @param classNames
  * @returns {string}
  */
-export const generateClasses = (classes, classNames) => {
-  if (typeof classNames === 'string') {
+export const generateClasses = (
+  classes: string,
+  classNames: string,
+  shouldOverride: boolean,
+) => {
+  if (shouldOverride) {
+    classes = classNames;
+  } else {
     classes = `${classes} ${classNames}`;
-  } else if (
-    typeof classNames === 'object' &&
-    classNames.overrideDefaults === true
-  ) {
-    classes = classNames.styles;
   }
   return classes;
 };
