@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 
 export default function useMergedStyles(
-  classNames,
-  defaultStyles,
-  { overrideDefaults = false },
+  classNames: any,
+  defaultStyles: any,
+  { overrideDefaults = false }: { overrideDefaults: boolean },
 ) {
-  const getMergedStyles = useCallback(
-    (key) => {
+  return useCallback(
+    (key: string) => {
       if (overrideDefaults) {
         return classNames?.[key];
       }
@@ -17,6 +17,4 @@ export default function useMergedStyles(
     },
     [classNames, defaultStyles, overrideDefaults],
   );
-
-  return getMergedStyles;
 }

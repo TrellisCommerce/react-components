@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/esm/",
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "ES6",
+    "jsx": "preserve",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true
+  },
+  "exclude": [
+    "node_modules",
+    "stories/*",
+    "public",
+    "tailwind.config.js",
+    "dist/*"
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}

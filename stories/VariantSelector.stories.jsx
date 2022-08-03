@@ -12,6 +12,7 @@ export default {
     isColor: { control: 'boolean', defaultValue: false },
     hasSizeGuide: { control: 'boolean', defaultValue: true },
     variants: { control: 'array' },
+    OverrideClasses: { control: 'boolean', defaultValue: false },
   },
 };
 
