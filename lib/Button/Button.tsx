@@ -9,7 +9,7 @@ interface Props {
   classNames?: ClassNames;
   disabled: boolean;
   displayText: string;
-  onClick: () => {};
+  onClick: () => void;
   overrideClasses?: boolean;
 }
 const Button: React.FC<Props> = ({
