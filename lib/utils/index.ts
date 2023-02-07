@@ -44,7 +44,7 @@ export const generateClasses = (
   if (shouldOverride) {
     classes = classNames;
   } else {
-    classes = `${classes} ${classNames}`;
+    classes = `${classes.length ? classes+" " : ""}${classNames}`;
   }
   return classes;
 };
