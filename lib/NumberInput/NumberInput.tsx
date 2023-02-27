@@ -43,6 +43,7 @@ const NumberInput: React.FC<Props> = (props) => {
       </button>
       <input
         id={`qty-${elementId}`}
+        data-testid={`qty-${elementId}`}
         type="text"
         pattern="[0-9]*"
         value={value}
