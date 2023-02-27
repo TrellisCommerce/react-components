@@ -11,8 +11,8 @@ describe('Metrics component', () => {
   it('should render metric values and labels', () => {
     const { getByText } = render(<Metrics metrics={metrics} />);
     metrics.forEach((metric) => {
-      expect(getByText(metric.value)).toBeInTheDocument();
-      expect(getByText(metric.label)).toBeInTheDocument();
+      expect(getByText(metric.value)).toHaveTextContent(metric.value);
+      expect(getByText(metric.label)).toHaveTextContent(metric.label);
     });
   });
 });
