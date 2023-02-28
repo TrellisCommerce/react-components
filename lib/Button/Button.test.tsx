@@ -14,7 +14,6 @@ describe('Button', () => {
   });
 
   it('should call onClick when clicked', () => {
-    
     const onClick = jest.fn();
 
     const { getByText } = render(
