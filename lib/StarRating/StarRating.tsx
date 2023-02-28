@@ -60,6 +60,7 @@ const StarRating: React.FC<Props> = ({
 
       starComponents.push(
         <svg
+          data-testid="star"
           key={i}
           className={clsx([
             'h-4',
