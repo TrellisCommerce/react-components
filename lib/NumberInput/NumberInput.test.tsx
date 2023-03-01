@@ -12,11 +12,7 @@ afterEach(cleanup);
 
 test('should render the number input', () => {
   const { getByTestId } = render(
-    <NumberInput
-      elementId={elementId}
-      value={value}
-      onChange={onChange}
-    />
+    <NumberInput elementId={elementId} value={value} onChange={onChange} />,
   );
 
   const input = getByTestId(`qty-${elementId}`);
@@ -26,11 +22,7 @@ test('should render the number input', () => {
 
 test('should decrease the value on minus button click', () => {
   const { getByText } = render(
-    <NumberInput
-      elementId={elementId}
-      value={value}
-      onChange={onChange}
-    />
+    <NumberInput elementId={elementId} value={value} onChange={onChange} />,
   );
 
   const minusButton = getByText('-');
@@ -41,11 +33,7 @@ test('should decrease the value on minus button click', () => {
 
 test('should increase the value on plus button click', () => {
   const { getByText } = render(
-    <NumberInput
-      elementId={elementId}
-      value={value}
-      onChange={onChange}
-    />
+    <NumberInput elementId={elementId} value={value} onChange={onChange} />,
   );
 
   const plusButton = getByText('+');
