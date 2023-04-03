@@ -23,12 +23,12 @@ interface Props {
   title: string;
   reviews: string;
   url: string;
-  variantImages: Image[];
-  starRating: number;
+  variantImages?: Image[];
+  starRating?: number;
   classNames?: ClassNames;
   displayVariants: boolean;
-  LinkComponent: JSX.Element | JSX.Element[];
-  onAddToCart: () => {};
+  LinkComponent?: JSX.Element | JSX.Element[];
+  onAddToCart: () => void;
   Image: React.FC;
   overrideClasses?: boolean;
 }

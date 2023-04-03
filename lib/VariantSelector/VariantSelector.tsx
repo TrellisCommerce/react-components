@@ -94,6 +94,7 @@ const VariantSelector: React.FC<Props> = ({
             >
               {variants.map((variant) => (
                 <RadioGroup.Option
+                data-testid={`variant-${variant.name}`}
                   key={variant.id}
                   value={variant.id}
                   disabled={!variant.isEnabled}
@@ -248,6 +249,7 @@ const VariantSelector: React.FC<Props> = ({
             >
               {variants.map((variant) => (
                 <RadioGroup.Option
+                  data-testid={`variant-${variant.name}`}
                   key={variant.id}
                   value={variant.id}
                   disabled={!variant.isEnabled}
@@ -265,6 +267,7 @@ const VariantSelector: React.FC<Props> = ({
                   {({ active, checked }) => (
                     <>
                       <RadioGroup.Label
+                        data-testid={`variant-${variant.name}`}
                         className={clsx(
                           generateClasses(
                             'font-light text-sm uppercase',
